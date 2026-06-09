@@ -530,7 +530,7 @@ function Landing({lang,setLang,onDone}){
         </h1>
         <p style={{fontSize:14,color:SUB,lineHeight:1.8,marginBottom:28,whiteSpace:"pre-line"}}>{ldata.p}</p>
         <div style={{marginBottom:28}}>
-          <div style={{fontSize:10,color:MUTED,letterSpacing:".22em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>{t.celebTitle}</div>
+          <div style={{fontSize:16,color:BLACK,letterSpacing:"-.01em",marginBottom:12,fontWeight:800,textAlign:"center"}}>{t.celebTitle}</div>
           <div style={{display:"flex",justifyContent:"center",gap:6,flexWrap:"wrap"}}>
             {Object.keys(CELEBS).map(function(id){return <span key={id} style={{background:WHITE,border:"1.5px solid "+BORDER,borderRadius:RD,padding:"8px 16px",fontSize:22,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>{EL[id].emoji}</span>;})}
           </div>
