@@ -58,7 +58,13 @@ export default async function handler(req, res) {
           return res.status(500).json({ error: msg });
         }
 
-        const raw = data.candidates?.[0]?.content?.parts?.[0]?.text || '{}';
+       const raw = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+// 응답 비어있으면 에러 반환
+if (!raw) {
+  const reason = data.candidates?.[0]?.finishReason || 'NO_CONTENT';
+  return res.status(500).json({ error: '응답 없음: ' + reason + ' / ' + JSON.stringify(data).slice(0, 200) });
+}
 
         let parsed = {};
         try {
