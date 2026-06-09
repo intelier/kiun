@@ -168,9 +168,9 @@ function doShare(text){
 
 // ── 번역 (컴포넌트 외부) ───────────────────────────────
 var TX={
-  KO:{tabt:"오늘의 기운",tabs:"오행 쇼핑",tabf:"기운 오브젝트",rediag:"재진단",affbtn:"제휴",myEl:"나의 기운",tdEl:"오늘의 일진",fixEl:"일간(日干) 기준",dayEl:"일진 (매일 변함)",pow:"기운 강도",stem:function(s){return"일간 "+s;},celebTitle:"나와 같은 기운의 K스타",celebNote:"* 공개 생년월일 기준",chatTitle:"오늘 어떤 하루인가요?",chatSub:"오행과 오늘의 기운을 더해 최적의 스타일을 찾아드려요",placeholder:"오늘 상황을 편하게 말씀해주세요.\n예: 오후에 중요한 미팅이 있어요.",voiceOn:"🎤 음성 입력",voiceOff:"⏹ 중지",voiceNo:"음성 미지원",generate:"오늘의 스타일링 받기",generating:"기운을 읽는 중...",retry:"↺ 다시 받기",wdTitle:"오늘 옷장에서 찾을 것",wdColors:"추천 컬러",wdItems:"추천 아이템",wdTip:"활용 팁",avoidTitle:"오늘 피할 것",keyTitle:"오늘의 핵심 아이템",sitTip:"기운 팁",shopTitle:"기운이 부족하다면",shopTabBtn:"오행 쇼핑 →",hint:"상황을 구체적으로 적을수록 더 정확해요",shareBtn:"나의 에너지 공유하기",cguide:"쇼핑 컬러 기준",matLbl:"추천 소재",avoidLbl:"피할 컬러",items:"기운 맞춤 추천 아이템",noId:"제휴 ID를 등록하면 구매 시 수수료가 발생해요",affSet:"등록하기",activeAff:function(n){return n+"개 플랫폼 활성화";},shopHere:"여기서 찾기 →",shopPlatforms:"쇼핑 플랫폼",accTitle:"오늘 기운 보완 — 액세서리 & 프린트",accSug:"액세서리 제안",prtSug:"프린트 제안",stoneLbl:"보완 소재 · 보석",search:"검색 →",elRelTitle:"어울리는 오행 & 피해야 할 오행",goodEl:"✦ 나에게 힘을 주는 오행",badEl:"✕ 피해야 할 오행",sameEl:function(n){return n+" 같은 기운끼리는 서로를 강화해요";},objTitle:"KIUN 기운 오브젝트",objSub:"당신의 오행 기운을 일상으로 가져오는 오브젝트들이에요. 하나씩 준비되는 중이에요.",fnote:"노트",comingSoon:"준비 중",soonTag:"준비 중",notifyLbl:"출시 알림 받기",sajuBtn:"사주(四柱)란?"},
-  EN:{tabt:"Today's Energy",tabs:"Element Shop",tabf:"Energy Objects",rediag:"Re-diagnose",affbtn:"Affiliate",myEl:"My K-Energy",tdEl:"Today's Fortune",fixEl:"Day Stem (日干)",dayEl:"Changes daily",pow:"Energy Level",stem:function(s){return"Day Stem "+s;},celebTitle:"K-Stars with My Energy",celebNote:"* Based on public birth dates",chatTitle:"What's today like for you?",chatSub:"We'll combine your K-Energy and today's fortune to find your perfect style",placeholder:"Describe your day freely.\nE.g. I have an important meeting this afternoon.",voiceOn:"🎤 Voice",voiceOff:"⏹ Stop",voiceNo:"Voice not supported",generate:"Get Today's Styling",generating:"Reading your energy...",retry:"↺ Try Again",wdTitle:"Look for in Your Wardrobe",wdColors:"Recommended Colors",wdItems:"Recommended Items",wdTip:"Wardrobe Tip",avoidTitle:"Avoid Today",keyTitle:"Today's Key Item",sitTip:"Energy Tip",shopTitle:"Need something new?",shopTabBtn:"Shop Your Energy →",hint:"The more specific, the more personalized your styling",shareBtn:"Share My Energy",cguide:"Shopping Color Guide",matLbl:"Materials",avoidLbl:"Avoid",items:"Curated Items for Your Energy",noId:"Register affiliate IDs to earn commission",affSet:"Set up",activeAff:function(n){return n+" platforms active";},shopHere:"Shop here →",shopPlatforms:"Shopping Platforms",accTitle:"Energy Boost — Accessories & Prints",accSug:"Accessory Suggestions",prtSug:"Print Suggestions",stoneLbl:"Complementary Materials",search:"Search →",elRelTitle:"Compatible & Conflicting Elements",goodEl:"✦ Empowering Element",badEl:"✕ Conflicting Element",sameEl:function(n){return"Same "+n+" energy amplifies yours";},objTitle:"KIUN Energy Objects",objSub:"Objects that bring your ohaeng energy into everyday life. Each one is being prepared.",fnote:"Notes",comingSoon:"Coming Soon",soonTag:"Soon",notifyLbl:"Notify me",sajuBtn:"What is Saju?"},
-  JP:{tabt:"今日の気運",tabs:"五行スタイル",tabf:"気運コレクション",rediag:"再診断",affbtn:"提携",myEl:"私のK-エネルギー",tdEl:"今日の日辰",fixEl:"日干 基準",dayEl:"毎日変わる",pow:"気運強度",stem:function(s){return"日干 "+s;},celebTitle:"私と同じ気運のK-スター",celebNote:"* 公開された生年月日による日干計算",chatTitle:"今日はどんな一日ですか？",chatSub:"五行と今日の気運を組み合わせて最適なスタイリングをご提案します",placeholder:"今日の状況を気軽にお話しください。\n例：午後に重要な会議があります。",voiceOn:"🎤 音声",voiceOff:"⏹ 停止",voiceNo:"音声非対応",generate:"今日のスタイリングを受け取る",generating:"気運を読んでいます...",retry:"↺ 再生成",wdTitle:"クローゼットで探すもの",wdColors:"おすすめカラー",wdItems:"おすすめアイテム",wdTip:"活用ヒント",avoidTitle:"今日避けること",keyTitle:"今日のキーアイテム",sitTip:"気運ヒント",shopTitle:"新しいものが必要なら",shopTabBtn:"気運ショッピング →",hint:"状況を具体的に書くほど、より正確なスタイリングが得られます",shareBtn:"私のエネルギーをシェア",cguide:"ショッピングカラー基準",matLbl:"おすすめ素材",avoidLbl:"避けるカラー",items:"気運に合ったおすすめアイテム",noId:"提携IDを登録するとリンクから手数料が発生します",affSet:"設定",activeAff:function(n){return n+"プラットフォーム提携中";},shopHere:"ショップへ →",shopPlatforms:"ショッピングプラットフォーム",accTitle:"今日の気運補完 — アクセサリー & プリント",accSug:"アクセサリー提案",prtSug:"プリント提案",stoneLbl:"補完素材 · 宝石",search:"検索 →",elRelTitle:"相性の良い五行 & 避けるべき五行",goodEl:"✦ 力をくれる五行",badEl:"✕ 避けるべき五行",sameEl:function(n){return n+"同士は互いを強化します";},objTitle:"KIUN 気運コレクション",objSub:"あなたの五行の気運を日常に取り入れるオブジェクトです。一つずつ準備中です。",fnote:"ノート",comingSoon:"準備中",soonTag:"準備中",notifyLbl:"発売通知を受け取る",sajuBtn:"四柱命理学とは？"},
+  KO:{tabt:"오늘의 기운",tabs:"오행 쇼핑",tabf:"기운 오브젝트",rediag:"재진단",affbtn:"제휴",myEl:"나의 기운",tdEl:"오늘의 일진",fixEl:"일간(日干) 기준",dayEl:"일진 (매일 변함)",pow:"기운 강도",stem:function(s){return"일간 "+s;},celebTitle:"나와 같은 기운을 가진 K스타는 누구?",celebNote:"* 공개 생년월일 기준",chatTitle:"오늘 어떤 하루인가요?",chatSub:"오행과 오늘의 기운을 더해 최적의 스타일을 찾아드려요",placeholder:"오늘 상황을 편하게 말씀해주세요.\n예: 오후에 중요한 미팅이 있어요.",voiceOn:"🎤 음성 입력",voiceOff:"⏹ 중지",voiceNo:"음성 미지원",generate:"오늘의 스타일링 받기",generating:"기운을 읽는 중...",retry:"↺ 다시 받기",wdTitle:"오늘 옷장에서 찾을 것",wdColors:"추천 컬러",wdItems:"추천 아이템",wdTip:"활용 팁",avoidTitle:"오늘 피할 것",keyTitle:"오늘의 핵심 아이템",sitTip:"기운 팁",shopTitle:"기운이 부족하다면",shopTabBtn:"오행 쇼핑 →",hint:"상황을 구체적으로 적을수록 더 정확해요",shareBtn:"나의 에너지 공유하기",cguide:"쇼핑 컬러 기준",matLbl:"추천 소재",avoidLbl:"피할 컬러",items:"기운 맞춤 추천 아이템",noId:"제휴 ID를 등록하면 구매 시 수수료가 발생해요",affSet:"등록하기",activeAff:function(n){return n+"개 플랫폼 활성화";},shopHere:"여기서 찾기 →",shopPlatforms:"쇼핑 플랫폼",accTitle:"오늘 기운 보완 — 액세서리 & 프린트",accSug:"액세서리 제안",prtSug:"프린트 제안",stoneLbl:"보완 소재 · 보석",search:"검색 →",elRelTitle:"어울리는 오행 & 피해야 할 오행",goodEl:"✦ 나에게 힘을 주는 오행",badEl:"✕ 피해야 할 오행",sameEl:function(n){return n+" 같은 기운끼리는 서로를 강화해요";},objTitle:"KIUN 기운 오브젝트",objSub:"당신의 오행 기운을 일상으로 가져오는 오브젝트들이에요. 하나씩 준비되는 중이에요.",fnote:"노트",comingSoon:"준비 중",soonTag:"준비 중",notifyLbl:"출시 알림 받기",sajuBtn:"사주(四柱)란?"},
+  EN:{tabt:"Today's Energy",tabs:"Element Shop",tabf:"Energy Objects",rediag:"Re-diagnose",affbtn:"Affiliate",myEl:"My K-Energy",tdEl:"Today's Fortune",fixEl:"Day Stem (日干)",dayEl:"Changes daily",pow:"Energy Level",stem:function(s){return"Day Stem "+s;},celebTitle:"Which K-Star shares your energy?",celebNote:"* Based on public birth dates",chatTitle:"What's today like for you?",chatSub:"We'll combine your K-Energy and today's fortune to find your perfect style",placeholder:"Describe your day freely.\nE.g. I have an important meeting this afternoon.",voiceOn:"🎤 Voice",voiceOff:"⏹ Stop",voiceNo:"Voice not supported",generate:"Get Today's Styling",generating:"Reading your energy...",retry:"↺ Try Again",wdTitle:"Look for in Your Wardrobe",wdColors:"Recommended Colors",wdItems:"Recommended Items",wdTip:"Wardrobe Tip",avoidTitle:"Avoid Today",keyTitle:"Today's Key Item",sitTip:"Energy Tip",shopTitle:"Need something new?",shopTabBtn:"Shop Your Energy →",hint:"The more specific, the more personalized your styling",shareBtn:"Share My Energy",cguide:"Shopping Color Guide",matLbl:"Materials",avoidLbl:"Avoid",items:"Curated Items for Your Energy",noId:"Register affiliate IDs to earn commission",affSet:"Set up",activeAff:function(n){return n+" platforms active";},shopHere:"Shop here →",shopPlatforms:"Shopping Platforms",accTitle:"Energy Boost — Accessories & Prints",accSug:"Accessory Suggestions",prtSug:"Print Suggestions",stoneLbl:"Complementary Materials",search:"Search →",elRelTitle:"Compatible & Conflicting Elements",goodEl:"✦ Empowering Element",badEl:"✕ Conflicting Element",sameEl:function(n){return"Same "+n+" energy amplifies yours";},objTitle:"KIUN Energy Objects",objSub:"Objects that bring your ohaeng energy into everyday life. Each one is being prepared.",fnote:"Notes",comingSoon:"Coming Soon",soonTag:"Soon",notifyLbl:"Notify me",sajuBtn:"What is Saju?"},
+  JP:{tabt:"今日の気運",tabs:"五行スタイル",tabf:"気運コレクション",rediag:"再診断",affbtn:"提携",myEl:"私のK-エネルギー",tdEl:"今日の日辰",fixEl:"日干 基準",dayEl:"毎日変わる",pow:"気運強度",stem:function(s){return"日干 "+s;},celebTitle:"同じ気運のK-スターは誰？",celebNote:"* 公開された生年月日による日干計算",chatTitle:"今日はどんな一日ですか？",chatSub:"五行と今日の気運を組み合わせて最適なスタイリングをご提案します",placeholder:"今日の状況を気軽にお話しください。\n例：午後に重要な会議があります。",voiceOn:"🎤 音声",voiceOff:"⏹ 停止",voiceNo:"音声非対応",generate:"今日のスタイリングを受け取る",generating:"気運を読んでいます...",retry:"↺ 再生成",wdTitle:"クローゼットで探すもの",wdColors:"おすすめカラー",wdItems:"おすすめアイテム",wdTip:"活用ヒント",avoidTitle:"今日避けること",keyTitle:"今日のキーアイテム",sitTip:"気運ヒント",shopTitle:"新しいものが必要なら",shopTabBtn:"気運ショッピング →",hint:"状況を具体的に書くほど、より正確なスタイリングが得られます",shareBtn:"私のエネルギーをシェア",cguide:"ショッピングカラー基準",matLbl:"おすすめ素材",avoidLbl:"避けるカラー",items:"気運に合ったおすすめアイテム",noId:"提携IDを登録するとリンクから手数料が発生します",affSet:"設定",activeAff:function(n){return n+"プラットフォーム提携中";},shopHere:"ショップへ →",shopPlatforms:"ショッピングプラットフォーム",accTitle:"今日の気運補完 — アクセサリー & プリント",accSug:"アクセサリー提案",prtSug:"プリント提案",stoneLbl:"補完素材 · 宝石",search:"検索 →",elRelTitle:"相性の良い五行 & 避けるべき五行",goodEl:"✦ 力をくれる五行",badEl:"✕ 避けるべき五行",sameEl:function(n){return n+"同士は互いを強化します";},objTitle:"KIUN 気運コレクション",objSub:"あなたの五行の気運を日常に取り入れるオブジェクトです。一つずつ準備中です。",fnote:"ノート",comingSoon:"準備中",soonTag:"準備中",notifyLbl:"発売通知を受け取る",sajuBtn:"四柱命理学とは？"},
 };
 
 // ── UI 컴포넌트 ────────────────────────────────────────
@@ -375,28 +375,134 @@ function AffModal({ids,onSave,onClose,lang}){
 // ── What is Saju? ──────────────────────────────────────
 function WhatIsSaju({lang}){
   var [open,setOpen]=useState(false);
-  var t=TX[lang];
+  var btnLabel={KO:"KIUN · 기운(氣運)이란?",EN:"What is KIUN · K-Energy?",JP:"KIUN · 気運とは？"}[lang];
   var data={
-    KO:{title:"사주(四柱)란?",intro:"2,000년 이상의 역사를 가진 한국 전통 운명 철학이에요. 태어난 순간의 년·월·일·시, 네 개의 기둥(四柱)이 그 사람의 기운을 결정한다고 봐요.",els:[{e:"🌿",n:"목 (木)",d:"성장하는 기운. 자유롭고 창의적."},{e:"🔥",n:"화 (火)",d:"불꽃 같은 기운. 열정적이고 강렬."},{e:"🌍",n:"토 (土)",d:"대지의 기운. 안정적이고 신뢰감."},{e:"🪙",n:"금 (金)",d:"정제된 기운. 완벽함을 추구."},{e:"💧",n:"수 (水)",d:"흐르는 기운. 깊고 지혜로움."}],f:"이 다섯 기운은 성격뿐 아니라 어울리는 컬러, 소재, 스타일에도 영향을 줍니다.",d:"오늘의 일진(日辰)에 따라 하늘의 기운도 매일 바뀝니다. 내 오행과 오늘의 기운이 만나는 방식에 따라 더 잘 어울리는 패션이 달라져요."},
-    EN:{title:"What is Saju (四柱)?",intro:"Saju — 'Four Pillars' — is a 2,000-year-old Korean system of destiny reading. Unlike Western astrology, Saju is not about stars — it's about energy.",els:[{e:"🌿",n:"Wood (木)",d:"Growing energy. Creative and free-spirited."},{e:"🔥",n:"Fire (火)",d:"Flame energy. Passionate and intense."},{e:"🌍",n:"Earth (土)",d:"Grounding energy. Stable and trustworthy."},{e:"🪙",n:"Metal (金)",d:"Refined energy. Precise and elegant."},{e:"💧",n:"Water (水)",d:"Flowing energy. Deep and wise."}],f:"Your element shapes the colors, textures, and silhouettes that resonate with your energy. KIUN translates ancient Korean saju wisdom into your everyday style.",d:"The heavens shift daily through the iljin (日辰) cycle. How today's cosmic energy meets yours determines which style serves you best."},
-    JP:{title:"四柱命理学（사주）とは？",intro:"四柱命理学（サジュ）は、2,000年以上の歴史を持つ韓国の運命哲学です。西洋占星術とは異なり、星ではなくエネルギーを読み解きます。",els:[{e:"🌿",n:"木（もく）",d:"成長する気運。自由で創造的。"},{e:"🔥",n:"火（か）",d:"炎の気運。情熱的で強烈。"},{e:"🌍",n:"土（ど）",d:"大地の気運。安定感と信頼感。"},{e:"🪙",n:"金（きん）",d:"洗練された気運。完璧を追求。"},{e:"💧",n:"水（すい）",d:"流れる気運。深く賢い。"}],f:"この五行は性格だけでなく、似合うカラー・素材・シルエットにも影響を与えます。",d:"天の気運は「日辰」として毎日変わります。自分の五行と今日の気運がどう交わるかによって、最適なスタイルが変わります。"},
+    KO:{
+      title:"KIUN · 기운(氣運)이란?",
+      sub:"2,000년 한국 전통 철학이 당신의 패션을 만날 때",
+      sections:[
+        {
+          heading:"기운(氣運)이란?",
+          body:"기운(氣運)은 사람과 자연에 흐르는 에너지예요. 한국 전통 철학에서는 우주의 모든 것이 다섯 가지 기운 — 목(木)·화(火)·토(土)·금(金)·수(水) — 으로 이루어진다고 봐요. 사람마다 태어날 때 타고난 기운이 있고, 이 기운이 성격·체질·어울리는 스타일을 결정해요."
+        },
+        {
+          heading:"사주(四柱)와 기운의 관계",
+          body:"사주(四柱)는 태어난 년·월·일·시의 네 기둥에서 기운을 읽는 방법이에요. KIUN은 그 중 일간(日干) — 태어난 날의 기운 — 을 분석해요. 생년월일만 입력하면 나의 고유한 기운 타입을 알 수 있어요."
+        },
+        {
+          heading:"KIUN이 하는 일",
+          body:"KIUN(氣運)은 이 2,000년 전통을 오늘의 패션 언어로 번역해요. 내 기운에 어울리는 컬러, 소재, 스타일을 알려주고, 오늘의 일진(하늘의 기운)과 내 기운이 어떻게 만나는지 분석해 그날 최적의 코디를 제안해요."
+        },
+      ],
+      els:[
+        {e:"🌿",n:"목 (木)",d:"성장과 자유. 초록·올리브 계열."},
+        {e:"🔥",n:"화 (火)",d:"열정과 강렬함. 레드·코랄 계열."},
+        {e:"🌍",n:"토 (土)",d:"안정과 신뢰. 카멜·베이지 계열."},
+        {e:"🪙",n:"금 (金)",d:"정제와 우아함. 실버·아이보리 계열."},
+        {e:"💧",n:"수 (水)",d:"깊이와 지혜. 네이비·차콜 계열."},
+      ],
+      close:"접기",
+    },
+    EN:{
+      title:"What is KIUN · K-Energy?",
+      sub:"When 2,000 years of Korean philosophy meets your wardrobe",
+      sections:[
+        {
+          heading:"What is K-Energy (氣運)?",
+          body:"K-Energy (氣運, Ki-un) is the life force that flows through people and nature. In Korean tradition, all things in the universe are composed of five energies — Wood, Fire, Earth, Metal, Water. Every person is born with a unique energy type that shapes their personality, vitality, and natural style."
+        },
+        {
+          heading:"Saju (四柱) & Energy",
+          body:"Saju (四柱, 'Four Pillars') is the Korean art of reading energy from the year, month, day, and hour of your birth. KIUN analyzes your Day Stem (日干) — the energy of your birth day — to determine your personal K-Energy type."
+        },
+        {
+          heading:"What KIUN does",
+          body:"KIUN (氣運) translates this 2,000-year-old wisdom into today's fashion language. It reveals the colors, textures, and silhouettes that harmonize with your energy — and reads how today's cosmic energy (日辰, iljin) meets yours to suggest the perfect outfit for the day."
+        },
+      ],
+      els:[
+        {e:"🌿",n:"Wood (木)",d:"Growth & freedom. Green & olive tones."},
+        {e:"🔥",n:"Fire (火)",d:"Passion & intensity. Red & coral tones."},
+        {e:"🌍",n:"Earth (土)",d:"Stability & trust. Camel & beige tones."},
+        {e:"🪙",n:"Metal (金)",d:"Refinement & elegance. Silver & ivory tones."},
+        {e:"💧",n:"Water (水)",d:"Depth & wisdom. Navy & charcoal tones."},
+      ],
+      close:"Close",
+    },
+    JP:{
+      title:"KIUN · 気運とは？",
+      sub:"2,000年の韓国哲学があなたのワードローブと出会うとき",
+      sections:[
+        {
+          heading:"気運（キウン）とは？",
+          body:"気運（氣運）とは、人と自然に流れるエネルギーのことです。韓国の伝統哲学では、宇宙のすべては五つの気運 — 木・火・土・金・水 — で構成されていると考えます。人はそれぞれ生まれた時に固有の気運を持ち、それが性格・体質・似合うスタイルを決めます。"
+        },
+        {
+          heading:"四柱命理学と気運の関係",
+          body:"四柱命理学（サジュ）は、生まれた年・月・日・時の四つの柱から気運を読む方法です。KIUNはその中の日干（ひっかん）— 生まれた日の気運 — を分析します。生年月日を入力するだけで、自分固有の気運タイプがわかります。"
+        },
+        {
+          heading:"KIUNができること",
+          body:"KIUN（氣運）は、この2,000年の伝統を現代のファッション言語に翻訳します。自分の気運に合うカラー・素材・シルエットを提案し、今日の日辰（天の気運）と自分の気運がどう出会うかを分析して、その日最適なコーデを教えてくれます。"
+        },
+      ],
+      els:[
+        {e:"🌿",n:"木（もく）",d:"成長と自由。グリーン・オリーブ系。"},
+        {e:"🔥",n:"火（か）",d:"情熱と強烈さ。レッド・コーラル系。"},
+        {e:"🌍",n:"土（ど）",d:"安定と信頼。キャメル・ベージュ系。"},
+        {e:"🪙",n:"金（きん）",d:"洗練と優雅さ。シルバー・アイボリー系。"},
+        {e:"💧",n:"水（すい）",d:"深みと知恵。ネイビー・チャコール系。"},
+      ],
+      close:"閉じる",
+    },
   }[lang];
-  var closeLabel={KO:"접기",EN:"Close",JP:"閉じる"}[lang];
+
   return(
     <div style={{marginTop:28,width:"100%"}}>
-      <button onClick={function(){setOpen(!open);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,cursor:"pointer",display:"flex",alignItems:"center",gap:6,margin:"0 auto",color:SUB,fontSize:12,fontFamily:"'DM Sans',sans-serif",fontWeight:600,padding:"8px 20px"}}>
-        <span style={{fontSize:10,display:"inline-block",transform:open?"rotate(90deg)":"rotate(0deg)",transition:"transform .25s"}}>▶</span>{t.sajuBtn}
+      <button onClick={function(){setOpen(!open);}}
+        style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,cursor:"pointer",display:"flex",alignItems:"center",gap:6,margin:"0 auto",color:SUB,fontSize:12,fontFamily:"'DM Sans',sans-serif",fontWeight:600,padding:"8px 20px"}}>
+        <span style={{fontSize:10,display:"inline-block",transform:open?"rotate(90deg)":"rotate(0deg)",transition:"transform .25s"}}>▶</span>
+        {btnLabel}
       </button>
       {open&&(
         <div style={{background:WHITE,borderRadius:20,padding:"24px 22px",marginTop:12,boxShadow:SHD}}>
-          <div style={{fontSize:20,fontWeight:700,color:BLACK,fontFamily:"'DM Sans',sans-serif",marginBottom:14}}>{data.title}</div>
-          <p style={{fontSize:13,color:SUB,lineHeight:1.9,marginBottom:18}}>{data.intro}</p>
-          <div style={{display:"flex",flexDirection:"column",gap:7,marginBottom:18}}>
-            {data.els.map(function(el){return(<div key={el.n} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 14px",border:"1.5px solid "+BORDER,borderRadius:12}}><span style={{fontSize:22,flexShrink:0}}>{el.e}</span><div><div style={{fontSize:14,color:BLACK,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginBottom:1}}>{el.n}</div><div style={{fontSize:11,color:SUB}}>{el.d}</div></div></div>);  })}
+          <div style={{fontSize:20,fontWeight:700,color:BLACK,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>{data.title}</div>
+          <div style={{fontSize:12,color:MUTED,marginBottom:18,fontStyle:"italic"}}>{data.sub}</div>
+
+          {/* 섹션 */}
+          {data.sections.map(function(sec,i){
+            return(
+              <div key={i} style={{marginBottom:18}}>
+                <div style={{fontSize:13,color:BLACK,fontWeight:700,marginBottom:6,display:"flex",alignItems:"center",gap:6}}>
+                  <div style={{width:3,height:14,background:BLACK,borderRadius:2,flexShrink:0}}></div>
+                  {sec.heading}
+                </div>
+                <p style={{fontSize:13,color:SUB,lineHeight:1.9,margin:0}}>{sec.body}</p>
+              </div>
+            );
+          })}
+
+          {/* 오행 */}
+          <div style={{fontSize:9,color:MUTED,fontFamily:"'DM Sans',sans-serif",letterSpacing:".2em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>
+            {lang==="KO"?"다섯 가지 기운":lang==="JP"?"五つの気運":"The Five Energies"}
           </div>
-          <div style={{borderLeft:"3px solid "+BLACK,paddingLeft:14,marginBottom:14}}><p style={{fontSize:13,color:BLACK,lineHeight:1.9,margin:0}}>{data.f}</p></div>
-          <p style={{fontSize:12,color:SUB,lineHeight:1.8,margin:0,borderTop:"1px solid "+BORDER,paddingTop:12}}>{data.d}</p>
-          <button onClick={function(){setOpen(false);}} style={{marginTop:14,background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"7px 20px",fontSize:11,color:MUTED,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",width:"100%"}}>{closeLabel}</button>
+          <div style={{display:"flex",flexDirection:"column",gap:7,marginBottom:16}}>
+            {data.els.map(function(el){
+              return(
+                <div key={el.n} style={{display:"flex",alignItems:"center",gap:12,padding:"9px 14px",border:"1.5px solid "+BORDER,borderRadius:12}}>
+                  <span style={{fontSize:20,flexShrink:0}}>{el.e}</span>
+                  <div>
+                    <div style={{fontSize:13,color:BLACK,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginBottom:1}}>{el.n}</div>
+                    <div style={{fontSize:11,color:SUB}}>{el.d}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <button onClick={function(){setOpen(false);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"7px 20px",fontSize:11,color:MUTED,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",width:"100%"}}>
+            {data.close}
+          </button>
         </div>
       )}
     </div>
@@ -426,7 +532,7 @@ function Landing({lang,setLang,onDone}){
         <div style={{marginBottom:28}}>
           <div style={{fontSize:10,color:MUTED,letterSpacing:".22em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>{t.celebTitle}</div>
           <div style={{display:"flex",justifyContent:"center",gap:6,flexWrap:"wrap"}}>
-            {Object.keys(CELEBS).map(function(id){return <span key={id} style={{background:WHITE,border:"1.5px solid "+BORDER,borderRadius:RD,padding:"5px 14px",fontSize:12,color:BLACK,fontWeight:500,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>{EL[id].emoji} {CELEBS[id][0].name}</span>;  })}
+            {Object.keys(CELEBS).map(function(id){return <span key={id} style={{background:WHITE,border:"1.5px solid "+BORDER,borderRadius:RD,padding:"8px 16px",fontSize:22,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>{EL[id].emoji}</span>;})}
           </div>
         </div>
         <div style={{background:WHITE,borderRadius:20,padding:"26px 22px",boxShadow:SHD}}>
@@ -637,7 +743,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
                   var text=buildShareText(myElId,lang);
                   navigator.clipboard.writeText(text).then(function(){setShareMsg("copied");setTimeout(function(){setShareMsg("");},2500);});
                 }} style={{width:"100%",background:BLACK,border:"none",borderRadius:RD,padding:"12px",color:WHITE,fontSize:13,cursor:"pointer",fontWeight:700,display:"flex",alignItems:"center",justifyContent:"center",gap:8}}>
-                  <span>{shareMsg==="copied"?(lang==="KO"?"✓ 복사됨 — 캡션에 붙여넣기":lang==="JP"?"✓ コピー済み":"✓ Copied — paste as caption"):(lang==="KO"?"텍스트 복사 (인스타·틱톡 캡션용)":lang==="JP"?"テキストコピー (Instagram・TikTok用)":"Copy Text (for Instagram · TikTok)")}</span>
+                  <span>{shareMsg==="copied"?(lang==="KO"?"✓ 복사됨 — 캡션에 붙여넣기":lang==="JP"?"✓ コピー済み":"✓ Copied — paste as caption"):(lang==="KO"?"SNS 캡션 복사":lang==="JP"?"SNSキャプションコピー":"Copy SNS Caption")}</span>
                 </button>
                 {/* Twitter/X — 직접 공유 가능 */}
                 <a href={"https://twitter.com/intent/tweet?text="+encodeURIComponent(buildShareText(myElId,lang))}
