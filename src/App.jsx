@@ -648,19 +648,14 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
       if(!raw){
         throw new Error("AI 응답이 비어있어요. API 키를 확인해주세요.");
       }
-      // 마크다운 코드블록 제거
       var text=raw.replace(/```json\s*/g,"").replace(/```\s*/g,"").trim();
-      // JSON 직접 파싱 시도
-      try{
-        setAiResult(JSON.parse(text));
-        return;
-      }catch(e1){}
-      // 중괄호로 JSON 추출 시도
-      var match=text.match(/\{[\s\S]*\}/);
-      if(!match){
-        throw new Error("응답 형식 오류: "+text.slice(0,100));
+      var parsed={};
+      try{parsed=JSON.parse(text);}catch(e){}
+      // 결과가 비어있으면 재시도 안내
+      if(!parsed.headline&&!parsed.energyMsg){
+        throw new Error(lang==="KO"?"AI가 일시적으로 과부하 상태예요. 잠시 후 다시 시도해주세요.":lang==="JP"?"AIが一時的に高負荷状態です。しばらくしてからもう一度お試しください。":"The AI is temporarily overloaded. Please try again in a moment.");
       }
-      setAiResult(JSON.parse(match[0]));
+      setAiResult(parsed);
     })
     .catch(function(e){
       setAiError(e.message);
@@ -791,7 +786,18 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
               </div>
               {!aiResult&&!aiLoading&&<div style={{fontSize:11,color:MUTED,marginTop:6,textAlign:"center",fontWeight:500}}>{t.hint}</div>}
             </div>
-            {aiError&&<Card><p style={{fontSize:13,color:SUB,textAlign:"center"}}>{aiError}</p></Card>}
+            {aiError&&(
+              <Card style={{textAlign:"center"}}>
+                <div style={{fontSize:20,marginBottom:10}}>⏳</div>
+                <p style={{fontSize:14,color:BLACK,fontWeight:700,marginBottom:6}}>
+                  {lang==="KO"?"잠시 후 다시 시도해주세요":lang==="JP"?"しばらくしてからお試しください":"Please try again in a moment"}
+                </p>
+                <p style={{fontSize:12,color:SUB,lineHeight:1.7,marginBottom:16}}>{aiError}</p>
+                <Pill onClick={function(){setAiError(null);}} style={{width:"100%",padding:10,fontSize:13}}>
+                  {lang==="KO"?"↺ 다시 시도":lang==="JP"?"↺ 再試行":"↺ Try Again"}
+                </Pill>
+              </Card>
+            )}
             {aiLoading&&(
               <div style={{textAlign:"center",padding:"22px 0"}}>
                 <div style={{position:"relative",width:44,height:44,margin:"0 auto 12px"}}>
