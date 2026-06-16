@@ -536,7 +536,7 @@ function Landing({lang,setLang,onDone}){
             {n:"01", KO:"생년월일과 성별을 입력하세요", EN:"Enter your birth date & gender", JP:"生年月日と性別を入力"},
             {n:"02", KO:"나만의 K-에너지 기운을 진단받으세요", EN:"Discover your K-Energy type", JP:"あなたの気運タイプを診断"},
             {n:"03", KO:"오늘의 스타일링을 받으세요", EN:"Get today's personalized styling", JP:"今日のスタイリングを受け取る"},
-            {n:"04", KO:"나와 같은 기운의 K스타를 찾아보세요", EN:"Find out which K-Star shares your energy", JP:"同じ気運のK-スターを見つけよう"},
+            {n:"+", KO:"나와 같은 기운의 K스타를 찾아보세요", EN:"+ Find out which K-Star shares your energy", JP:"同じ気運のK-スターを見つけよう"},
           ].map(function(step){
             return(
               <div key={step.n} style={{display:"flex",alignItems:"center",gap:12}}>
