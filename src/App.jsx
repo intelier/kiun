@@ -528,7 +528,25 @@ function Landing({lang,setLang,onDone}){
         <h1 style={{fontSize:"clamp(32px,7vw,52px)",fontWeight:800,color:BLACK,lineHeight:1.1,marginBottom:14,letterSpacing:"-.02em"}}>
           <span style={{display:"block",fontSize:"clamp(16px,3.5vw,24px)",fontWeight:400,color:SUB,marginBottom:4}}>{ldata.h1a}</span>{ldata.h1b}
         </h1>
-        <p style={{fontSize:14,color:SUB,lineHeight:1.8,marginBottom:28,whiteSpace:"pre-line"}}>{ldata.p}</p>
+        <p style={{fontSize:14,color:SUB,lineHeight:1.8,marginBottom:24,whiteSpace:"pre-line"}}>{ldata.p}</p>
+
+        {/* 스텝 가이드 */}
+        <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:28,width:"100%",maxWidth:320}}>
+          {[
+            {n:"01", KO:"생년월일과 성별을 입력하세요", EN:"Enter your birth date & gender", JP:"生年月日と性別を入力"},
+            {n:"02", KO:"나만의 K-에너지 기운을 진단받으세요", EN:"Discover your K-Energy type", JP:"あなたの気運タイプを診断"},
+            {n:"03", KO:"오늘의 스타일링을 받으세요", EN:"Get today's personalized styling", JP:"今日のスタイリングを受け取る"},
+            {n:"04", KO:"나와 같은 기운의 K스타를 찾아보세요", EN:"Find out which K-Star shares your energy", JP:"同じ気運のK-スターを見つけよう"},
+          ].map(function(step){
+            return(
+              <div key={step.n} style={{display:"flex",alignItems:"center",gap:12}}>
+                <span style={{fontSize:10,color:MUTED,fontFamily:"monospace",fontWeight:700,flexShrink:0,letterSpacing:".05em"}}>{step.n}</span>
+                <div style={{flex:1,height:1,background:BORDER}}></div>
+                <span style={{fontSize:12,color:SUB,fontWeight:500,textAlign:"right"}}>{step[lang]}</span>
+              </div>
+            );
+          })}
+        </div>
         <div style={{marginBottom:28}}>
           <div style={{fontSize:16,color:BLACK,letterSpacing:"-.01em",marginBottom:12,fontWeight:800,textAlign:"center"}}>{t.celebTitle}</div>
           <div style={{display:"flex",justifyContent:"center",gap:6,flexWrap:"wrap"}}>
@@ -945,7 +963,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
 // ── 루트 ──────────────────────────────────────────────
 export default function KIUN(){
   var [screen,setScreen]=useState("landing");
-  var [lang,setLang]=useState("KO");
+  var [lang,setLang]=useState("EN");
   var [myElId,setMyElId]=useState(null);
   var [myElStem,setMyElStem]=useState(null);
   var [myGender,setMyGender]=useState(null);
