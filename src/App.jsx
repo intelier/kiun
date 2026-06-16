@@ -547,11 +547,8 @@ function Landing({lang,setLang,onDone}){
             );
           })}
         </div>
-        <div style={{marginBottom:28}}>
-          <div style={{fontSize:16,color:BLACK,letterSpacing:"-.01em",marginBottom:12,fontWeight:800,textAlign:"center"}}>{t.celebTitle}</div>
-          <div style={{display:"flex",justifyContent:"center",gap:6,flexWrap:"wrap"}}>
-            {Object.keys(CELEBS).map(function(id){return <span key={id} style={{background:WHITE,border:"1.5px solid "+BORDER,borderRadius:RD,padding:"8px 16px",fontSize:22,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>{EL[id].emoji}</span>;})}
-          </div>
+        <div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:28}}>
+          {Object.keys(CELEBS).map(function(id){return <span key={id} style={{background:WHITE,border:"1.5px solid "+BORDER,borderRadius:RD,padding:"8px 16px",fontSize:22,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>{EL[id].emoji}</span>;})}
         </div>
         <div style={{background:WHITE,borderRadius:20,padding:"26px 22px",boxShadow:SHD}}>
           <div style={{fontSize:11,color:MUTED,letterSpacing:".22em",textTransform:"uppercase",textAlign:"center",marginBottom:20,fontWeight:600}}>{ldata.lbl}</div>
