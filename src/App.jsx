@@ -637,6 +637,12 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
 
   useEffect(function(){setVoiceOk(!!(window.SpeechRecognition||window.webkitSpeechRecognition));},[]);
 
+  // 언어 변경 시 결과 초기화
+  useEffect(function(){
+    setAiResult(null);
+    setAiError(null);
+  },[lang]);
+
   function toggleVoice(){
     if(isRec){if(recogRef.current)recogRef.current.stop();setIsRec(false);return;}
     var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR)return;
