@@ -15,7 +15,7 @@ var BASE_D=new Date(2024,0,1);
 function getIljin(){var diff=Math.floor((new Date()-BASE_D)/86400000),ci=((diff)%10+10)%10,ji=((4+diff)%12+12)%12;return{elId:CG_EL[ci],label:CG_LBL[ci]+JJ_LBL[ji]+"일"};}
 function getRelation(a,b){var mi=CYCLE.indexOf(a),ti=CYCLE.indexOf(b);if(mi===ti)return"same";if(CYCLE[(mi+1)%5]===b)return"gen_me";if(CYCLE[(mi+4)%5]===b)return"i_gen";if(CYCLE[(mi+3)%5]===b)return"kills_me";return"i_kill";}
 
-var YEARS=Array.from({length:75},function(_,i){return 2010-i;});
+var YEARS=Array.from({length:90},function(_,i){return 2020-i;});
 var MON={KO:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10월","11월","12월"],EN:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],JP:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"]};
 
 // ── 오행 데이터 ────────────────────────────────────────
@@ -584,6 +584,14 @@ function Landing({lang,setLang,onDone}){
           <Pill solid onClick={function(){if(ready)onDone(+year,+month,+day,gender);}} disabled={!ready} style={{width:"100%",padding:"14px",fontSize:15}}>{ready?ldata.go:ldata.wait}</Pill>
         </div>
         <WhatIsSaju lang={lang}/>
+
+        {/* Contact */}
+        <div style={{marginTop:28,textAlign:"center"}}>
+          <div style={{fontSize:9,color:MUTED,letterSpacing:".2em",textTransform:"uppercase",marginBottom:6,fontFamily:"monospace",fontWeight:600}}>Contact</div>
+          <a href="mailto:sinkita@naver.com" style={{fontSize:12,color:SUB,textDecoration:"none",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>
+            sinkita@naver.com
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -966,7 +974,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
 // ── 루트 ──────────────────────────────────────────────
 export default function KIUN(){
   var [screen,setScreen]=useState("landing");
-  var [lang,setLang]=useState("EN");
+  var [lang,setLang]=useState("KO");
   var [myElId,setMyElId]=useState(null);
   var [myElStem,setMyElStem]=useState(null);
   var [myGender,setMyGender]=useState(null);
