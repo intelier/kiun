@@ -20,19 +20,19 @@ var MON={KO:["1월","2월","3월","4월","5월","6월","7월","8월","9월","10�
 
 // ── 오행 데이터 ────────────────────────────────────────
 var EL={
-  mok:{hanja:"木",emoji:"🌿",name:{KO:"목 (木)",EN:"Wood (木)",JP:"木 (もく)"},type:{KO:"초록 숲 에너지",EN:"Green Forest Energy",JP:"緑の森エネルギー"},desc:{KO:"성장하고 뻗어나가는 기운. 자유롭고 창의적입니다.",EN:"Endlessly growing energy. Creative and free-spirited.",JP:"成長し広がる気運。自由で創造的です。"},colors:{KO:["포레스트그린","올리브","민트"],EN:["Forest Green","Olive","Mint"],JP:["フォレストグリーン","オリーブ","ミント"]},hex:["#3D6B4F","#6A9A70","#7BBFB5"],avoid:{KO:"화이트 계열",EN:"White tones",JP:"ホワイト系"},mat:{KO:"린넨 · 면 · 오가닉",EN:"Linen · Cotton · Organic",JP:"リネン・コットン・オーガニック"},styles:{KO:["와이드 팬츠","린넨 셔츠","맥시 원피스","오버핏 자켓"],EN:["Wide Pants","Linen Shirt","Maxi Dress","Oversized Jacket"],JP:["ワイドパンツ","リネンシャツ","マキシワンピース","オーバーサイズジャケット"]},
+  mok:{hanja:"木",emoji:"🌿",symbol:{emoji:"💚",KO:"나뭇잎 이어링 · 녹색 재스퍼",EN:"Leaf Earrings · Green Jasper",JP:"リーフピアス · グリーンジャスパー"},name:{KO:"목 (木)",EN:"Wood (木)",JP:"木 (もく)"},type:{KO:"초록 숲 에너지",EN:"Green Forest Energy",JP:"緑の森エネルギー"},desc:{KO:"성장하고 뻗어나가는 기운. 자유롭고 창의적입니다.",EN:"Endlessly growing energy. Creative and free-spirited.",JP:"成長し広がる気運。自由で創造的です。"},colors:{KO:["포레스트그린","올리브","민트"],EN:["Forest Green","Olive","Mint"],JP:["フォレストグリーン","オリーブ","ミント"]},hex:["#3D6B4F","#6A9A70","#7BBFB5"],avoid:{KO:"화이트 계열",EN:"White tones",JP:"ホワイト系"},mat:{KO:"린넨 · 면 · 오가닉",EN:"Linen · Cotton · Organic",JP:"リネン・コットン・オーガニック"},styles:{KO:["와이드 팬츠","린넨 셔츠","맥시 원피스","오버핏 자켓"],EN:["Wide Pants","Linen Shirt","Maxi Dress","Oversized Jacket"],JP:["ワイドパンツ","リネンシャツ","マキシワンピース","オーバーサイズジャケット"]},
     products:[{KO:"올리브 와이드 팬츠",EN:"Olive Wide Pants",JP:"オリーブワイドパンツ",price:"₩49,000",tag:{KO:"핵심 추천",EN:"Top Pick",JP:"イチ推し"},kw:"olive wide pants"},{KO:"포레스트 맥시 원피스",EN:"Forest Maxi Dress",JP:"フォレストマキシワンピース",price:"₩65,000",tag:{KO:"베스트",EN:"Best",JP:"ベスト"},kw:"green maxi dress"},{KO:"민트 린넨 셔츠",EN:"Mint Linen Shirt",JP:"ミントリネンシャツ",price:"₩38,000",tag:{KO:"데일리",EN:"Daily",JP:"デイリー"},kw:"mint linen shirt"}],
     frag:"KIUN 01",fragNotes:{KO:"삼나무 · 베티버 · 그린티",EN:"Cedarwood · Vetiver · Green Tea",JP:"シダー · ベチバー · グリーンティー"},fragStory:{KO:"숲의 기운을 두르다",EN:"Wear the forest spirit",JP:"森の気運を纏う"},fragPrice:"₩89,000"},
-  hwa:{hanja:"火",emoji:"🔥",name:{KO:"화 (火)",EN:"Fire (火)",JP:"火 (か)"},type:{KO:"불꽃 에너지",EN:"Flame Energy",JP:"炎エネルギー"},desc:{KO:"열정적이고 강렬한 기운. 어디서든 존재감을 발휘합니다.",EN:"Passionate and intense energy. You radiate presence wherever you go.",JP:"情熱的で強烈な気運。どこでも存在感を発揮します。"},colors:{KO:["버밀리온레드","코랄","핫핑크"],EN:["Vermilion Red","Coral","Hot Pink"],JP:["バーミリオン","コーラル","ホットピンク"]},hex:["#CC3333","#E8704A","#D63B7A"],avoid:{KO:"블랙·딥네이비",EN:"Black · Deep Navy",JP:"ブラック · ディープネイビー"},mat:{KO:"새틴 · 실크 · 광택소재",EN:"Satin · Silk · Glossy Fabric",JP:"サテン · シルク · 光沢素材"},styles:{KO:["레드 코트","오프숄더 탑","미니 스커트","새틴 블라우스"],EN:["Red Coat","Off-Shoulder Top","Mini Skirt","Satin Blouse"],JP:["レッドコート","オフショルダートップ","ミニスカート","サテンブラウス"]},
+  hwa:{hanja:"火",emoji:"🔥",symbol:{emoji:"🔴",KO:"루비 · 코랄 비즈 팔찌",EN:"Ruby · Coral Bead Bracelet",JP:"ルビー · コーラルビーズ"},name:{KO:"화 (火)",EN:"Fire (火)",JP:"火 (か)"},type:{KO:"불꽃 에너지",EN:"Flame Energy",JP:"炎エネルギー"},desc:{KO:"열정적이고 강렬한 기운. 어디서든 존재감을 발휘합니다.",EN:"Passionate and intense energy. You radiate presence wherever you go.",JP:"情熱的で強烈な気運。どこでも存在感を発揮します。"},colors:{KO:["버밀리온레드","코랄","핫핑크"],EN:["Vermilion Red","Coral","Hot Pink"],JP:["バーミリオン","コーラル","ホットピンク"]},hex:["#CC3333","#E8704A","#D63B7A"],avoid:{KO:"블랙·딥네이비",EN:"Black · Deep Navy",JP:"ブラック · ディープネイビー"},mat:{KO:"새틴 · 실크 · 광택소재",EN:"Satin · Silk · Glossy Fabric",JP:"サテン · シルク · 光沢素材"},styles:{KO:["레드 코트","오프숄더 탑","미니 스커트","새틴 블라우스"],EN:["Red Coat","Off-Shoulder Top","Mini Skirt","Satin Blouse"],JP:["レッドコート","オフショルダートップ","ミニスカート","サテンブラウス"]},
     products:[{KO:"버밀리온 테일러드 코트",EN:"Vermilion Tailored Coat",JP:"バーミリオンコート",price:"₩129,000",tag:{KO:"시그니처",EN:"Signature",JP:"シグネチャー"},kw:"red tailored coat"},{KO:"코랄 새틴 블라우스",EN:"Coral Satin Blouse",JP:"コーラルサテンブラウス",price:"₩55,000",tag:{KO:"핵심 추천",EN:"Top Pick",JP:"イチ推し"},kw:"coral satin blouse"},{KO:"레드 미니 스커트",EN:"Red Mini Skirt",JP:"レッドミニスカート",price:"₩42,000",tag:{KO:"베스트",EN:"Best",JP:"ベスト"},kw:"red mini skirt"}],
     frag:"KIUN 02",fragNotes:{KO:"블랙페퍼 · 장미 · 앰버",EN:"Black Pepper · Rose · Amber",JP:"ブラックペッパー · ローズ · アンバー"},fragStory:{KO:"불꽃의 기운을 내뿜다",EN:"Radiate the flame spirit",JP:"炎の気運を放つ"},fragPrice:"₩89,000"},
-  to:{hanja:"土",emoji:"🌍",name:{KO:"토 (土)",EN:"Earth (土)",JP:"土 (ど)"},type:{KO:"대지 에너지",EN:"Earth Energy",JP:"大地エネルギー"},desc:{KO:"안정적이고 신뢰감 있는 기운. 모든 것의 중심이 됩니다.",EN:"Stable and trustworthy energy. You are the anchor people rely on.",JP:"安定感と信頼感のある気運。皆の中心となります。"},colors:{KO:["카멜","베이지","머스타드"],EN:["Camel","Beige","Mustard"],JP:["キャメル","ベージュ","マスタード"]},hex:["#B5783A","#D4B896","#C8A020"],avoid:{KO:"초록 계열",EN:"Green tones",JP:"グリーン系"},mat:{KO:"울 · 코듀로이 · 데님",EN:"Wool · Corduroy · Denim",JP:"ウール · コーデュロイ · デニム"},styles:{KO:["트렌치코트","슬랙스 세트업","울 니트","카디건"],EN:["Trench Coat","Set-up Slacks","Wool Knit","Cardigan"],JP:["トレンチコート","セットアップスラックス","ウールニット","カーディガン"]},
+  to:{hanja:"土",emoji:"🌍",symbol:{emoji:"🟤",KO:"타이거아이 · 황동 뱅글",EN:"Tiger Eye · Brass Bangle",JP:"タイガーアイ · ブラスバングル"},name:{KO:"토 (土)",EN:"Earth (土)",JP:"土 (ど)"},type:{KO:"대지 에너지",EN:"Earth Energy",JP:"大地エネルギー"},desc:{KO:"안정적이고 신뢰감 있는 기운. 모든 것의 중심이 됩니다.",EN:"Stable and trustworthy energy. You are the anchor people rely on.",JP:"安定感と信頼感のある気運。皆の中心となります。"},colors:{KO:["카멜","베이지","머스타드"],EN:["Camel","Beige","Mustard"],JP:["キャメル","ベージュ","マスタード"]},hex:["#B5783A","#D4B896","#C8A020"],avoid:{KO:"초록 계열",EN:"Green tones",JP:"グリーン系"},mat:{KO:"울 · 코듀로이 · 데님",EN:"Wool · Corduroy · Denim",JP:"ウール · コーデュロイ · デニム"},styles:{KO:["트렌치코트","슬랙스 세트업","울 니트","카디건"],EN:["Trench Coat","Set-up Slacks","Wool Knit","Cardigan"],JP:["トレンチコート","セットアップスラックス","ウールニット","カーディガン"]},
     products:[{KO:"카멜 클래식 트렌치코트",EN:"Camel Trench Coat",JP:"キャメルトレンチコート",price:"₩159,000",tag:{KO:"시그니처",EN:"Signature",JP:"シグネチャー"},kw:"camel trench coat"},{KO:"베이지 세트업 슬랙스",EN:"Beige Set-up Slacks",JP:"ベージュセットアップスラックス",price:"₩72,000",tag:{KO:"핵심 추천",EN:"Top Pick",JP:"イチ推し"},kw:"beige set up slacks"},{KO:"머스타드 울 니트",EN:"Mustard Wool Knit",JP:"マスタードウールニット",price:"₩58,000",tag:{KO:"베스트",EN:"Best",JP:"ベスト"},kw:"mustard knit sweater"}],
     frag:"KIUN 03",fragNotes:{KO:"카다몸 · 샌달우드 · 바닐라",EN:"Cardamom · Sandalwood · Vanilla",JP:"カルダモン · サンダルウッド · バニラ"},fragStory:{KO:"대지의 기운을 품다",EN:"Embrace the earth spirit",JP:"大地の気運を抱く"},fragPrice:"₩89,000"},
-  geum:{hanja:"金",emoji:"🪙",name:{KO:"금 (金)",EN:"Metal (金)",JP:"金 (きん)"},type:{KO:"백금 에너지",EN:"Metal Energy",JP:"白金エネルギー"},desc:{KO:"정제되고 날카로운 기운. 완벽함을 추구합니다.",EN:"Refined and sharp energy. You cut through noise with precision.",JP:"洗練された鋭い気運。完璧を追求します。"},colors:{KO:["오프화이트","실버그레이","샴페인골드"],EN:["Off-White","Silver Gray","Champagne Gold"],JP:["オフホワイト","シルバーグレー","シャンパンゴールド"]},hex:["#F0EDE4","#A8A8A8","#C8A96E"],avoid:{KO:"레드·오렌지",EN:"Red · Orange",JP:"レッド · オレンジ"},mat:{KO:"가죽 · 메탈릭 패브릭",EN:"Leather · Metallic Fabric",JP:"レザー · メタリックファブリック"},styles:{KO:["테일러드 수트","슬림 슬랙스","미니멀 재킷","실버 액세서리"],EN:["Tailored Suit","Slim Slacks","Minimal Jacket","Silver Accessories"],JP:["テーラードスーツ","スリムスラックス","ミニマルジャケット","シルバーアクセサリー"]},
+  geum:{hanja:"金",emoji:"🪙",symbol:{emoji:"🤍",KO:"문스톤 · 진주 이어링",EN:"Moonstone · Pearl Earrings",JP:"ムーンストーン · パールピアス"},name:{KO:"금 (金)",EN:"Metal (金)",JP:"金 (きん)"},type:{KO:"백금 에너지",EN:"Metal Energy",JP:"白金エネルギー"},desc:{KO:"정제되고 날카로운 기운. 완벽함을 추구합니다.",EN:"Refined and sharp energy. You cut through noise with precision.",JP:"洗練された鋭い気運。完璧を追求します。"},colors:{KO:["오프화이트","실버그레이","샴페인골드"],EN:["Off-White","Silver Gray","Champagne Gold"],JP:["オフホワイト","シルバーグレー","シャンパンゴールド"]},hex:["#F0EDE4","#A8A8A8","#C8A96E"],avoid:{KO:"레드·오렌지",EN:"Red · Orange",JP:"レッド · オレンジ"},mat:{KO:"가죽 · 메탈릭 패브릭",EN:"Leather · Metallic Fabric",JP:"レザー · メタリックファブリック"},styles:{KO:["테일러드 수트","슬림 슬랙스","미니멀 재킷","실버 액세서리"],EN:["Tailored Suit","Slim Slacks","Minimal Jacket","Silver Accessories"],JP:["テーラードスーツ","スリムスラックス","ミニマルジャケット","シルバーアクセサリー"]},
     products:[{KO:"오프화이트 테일러드 재킷",EN:"Off-White Tailored Jacket",JP:"オフホワイトジャケット",price:"₩138,000",tag:{KO:"시그니처",EN:"Signature",JP:"シグネチャー"},kw:"white tailored jacket"},{KO:"실버 체인 목걸이",EN:"Silver Chain Necklace",JP:"シルバーチェーンネックレス",price:"₩28,000",tag:{KO:"액세서리",EN:"Accessory",JP:"アクセサリー"},kw:"silver chain necklace"},{KO:"아이보리 슬림 슬랙스",EN:"Ivory Slim Slacks",JP:"アイボリースリムスラックス",price:"₩62,000",tag:{KO:"베스트",EN:"Best",JP:"ベスト"},kw:"ivory slim slacks"}],
     frag:"KIUN 04",fragNotes:{KO:"화이트티 · 아이리스 · 화이트머스크",EN:"White Tea · Iris · White Musk",JP:"ホワイトティー · アイリス · ホワイトムスク"},fragStory:{KO:"정제된 기운을 새기다",EN:"Engrave the refined spirit",JP:"洗練された気運を刻む"},fragPrice:"₩89,000"},
-  su:{hanja:"水",emoji:"💧",name:{KO:"수 (水)",EN:"Water (水)",JP:"水 (すい)"},type:{KO:"심해 에너지",EN:"Deep Sea Energy",JP:"深海エネルギー"},desc:{KO:"깊고 신비로운 기운. 지혜롭고 유연합니다.",EN:"Deep and mysterious energy. You flow with wisdom and grace.",JP:"深く神秘的な気運。賢く柔軟です。"},colors:{KO:["딥네이비","차콜","인디고"],EN:["Deep Navy","Charcoal","Indigo"],JP:["ディープネイビー","チャコール","インディゴ"]},hex:["#1A2D4F","#3A3A3A","#2E3A6E"],avoid:{KO:"베이지·노랑",EN:"Beige · Yellow",JP:"ベージュ · イエロー"},mat:{KO:"벨벳 · 쉬폰 · 실크혼방",EN:"Velvet · Chiffon · Silk Blend",JP:"ベルベット · シフォン · シルクブレンド"},styles:{KO:["드레이프 원피스","플리츠 스커트","벨벳 자켓","다크 레이어링"],EN:["Drape Dress","Pleated Skirt","Velvet Jacket","Dark Layering"],JP:["ドレープワンピース","プリーツスカート","ベルベットジャケット","ダークレイヤリング"]},
+  su:{hanja:"水",emoji:"💧",symbol:{emoji:"🔵",KO:"아쿠아마린 · 블랙 오닉스",EN:"Aquamarine · Black Onyx",JP:"アクアマリン · ブラックオニキス"},name:{KO:"수 (水)",EN:"Water (水)",JP:"水 (すい)"},type:{KO:"심해 에너지",EN:"Deep Sea Energy",JP:"深海エネルギー"},desc:{KO:"깊고 신비로운 기운. 지혜롭고 유연합니다.",EN:"Deep and mysterious energy. You flow with wisdom and grace.",JP:"深く神秘的な気運。賢く柔軟です。"},colors:{KO:["딥네이비","차콜","인디고"],EN:["Deep Navy","Charcoal","Indigo"],JP:["ディープネイビー","チャコール","インディゴ"]},hex:["#1A2D4F","#3A3A3A","#2E3A6E"],avoid:{KO:"베이지·노랑",EN:"Beige · Yellow",JP:"ベージュ · イエロー"},mat:{KO:"벨벳 · 쉬폰 · 실크혼방",EN:"Velvet · Chiffon · Silk Blend",JP:"ベルベット · シフォン · シルクブレンド"},styles:{KO:["드레이프 원피스","플리츠 스커트","벨벳 자켓","다크 레이어링"],EN:["Drape Dress","Pleated Skirt","Velvet Jacket","Dark Layering"],JP:["ドレープワンピース","プリーツスカート","ベルベットジャケット","ダークレイヤリング"]},
     products:[{KO:"딥네이비 드레이프 원피스",EN:"Deep Navy Drape Dress",JP:"ディープネイビードレープワンピース",price:"₩88,000",tag:{KO:"시그니처",EN:"Signature",JP:"シグネチャー"},kw:"navy drape dress"},{KO:"차콜 플리츠 롱스커트",EN:"Charcoal Pleated Skirt",JP:"チャコールプリーツスカート",price:"₩55,000",tag:{KO:"핵심 추천",EN:"Top Pick",JP:"イチ推し"},kw:"charcoal pleated skirt"},{KO:"블랙 벨벳 크롭 자켓",EN:"Black Velvet Crop Jacket",JP:"ブラックベルベットクロップジャケット",price:"₩98,000",tag:{KO:"베스트",EN:"Best",JP:"ベスト"},kw:"black velvet jacket"}],
     frag:"KIUN 05",fragNotes:{KO:"아쿠아틱 · 바이올렛 · 앰버그리스",EN:"Aquatic · Violet · Ambergris",JP:"アクアティック · バイオレット · アンバーグリス"},fragStory:{KO:"깊은 기운을 흐르다",EN:"Flow with the deep spirit",JP:"深い気運を流れる"},fragPrice:"₩89,000"},
 };
@@ -175,7 +175,14 @@ var TX={
 
 // ── UI 컴포넌트 ────────────────────────────────────────
 function LT({lang,onChange}){
-  return <div style={{display:"flex",gap:3}}>{["KO","EN","JP"].map(function(l){return(<button key={l} onClick={function(){onChange(l);}} style={{background:lang===l?BLACK:"transparent",color:lang===l?WHITE:MUTED,border:"1px solid "+(lang===l?BLACK:BORDER),borderRadius:RD,padding:"3px 11px",fontSize:10,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>{l}</button>);})}</div>;
+  return(
+    <div style={{display:"flex",alignItems:"center",gap:6}}>
+      <span style={{fontSize:9,color:MUTED,fontFamily:"monospace",letterSpacing:".15em",fontWeight:600}}>LANGUAGE</span>
+      <div style={{display:"flex",gap:3}}>
+        {["KO","EN","JP"].map(function(l){return(<button key={l} onClick={function(){onChange(l);}} style={{background:lang===l?BLACK:"transparent",color:lang===l?WHITE:MUTED,border:"1px solid "+(lang===l?BLACK:BORDER),borderRadius:RD,padding:"3px 11px",fontSize:10,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>{l}</button>);})}
+      </div>
+    </div>
+  );
 }
 
 function Card({children,style}){return <div style={Object.assign({background:WHITE,borderRadius:16,padding:18,marginBottom:12,boxShadow:SHD},style||{})}>{children}</div>;}
@@ -521,7 +528,26 @@ function Landing({lang,setLang,onDone}){
   function ss(v){return{width:"100%",background:WHITE,border:"1.5px solid "+(v?BLACK:BORDER),borderRadius:12,padding:"11px 12px",color:v?BLACK:MUTED,fontSize:13,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500,appearance:"none",WebkitAppearance:"none"};}
   return(
     <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"56px 22px 40px",fontFamily:"'DM Sans',sans-serif"}}>
-      <div style={{position:"fixed",top:16,right:18,zIndex:100}}><LT lang={lang} onChange={setLang}/></div>
+      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(243,240,235,0.95)",backdropFilter:"blur(8px)",borderBottom:"1px solid "+BORDER,padding:"10px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <span style={{fontSize:11,letterSpacing:".3em",color:BLACK,fontFamily:"monospace",fontWeight:700}}>KIUN · 氣運</span>
+        <div style={{display:"flex",alignItems:"center",gap:6}}>
+          <span style={{fontSize:10,color:MUTED,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginRight:4}}>
+            {lang==="KO"?"언어":lang==="JP"?"言語":"Language"}
+          </span>
+          {["KO","EN","JP"].map(function(l){
+            return(
+              <button key={l} onClick={function(){setLang(l);}}
+                style={{background:lang===l?BLACK:"transparent",color:lang===l?WHITE:SUB,
+                        border:"1.5px solid "+(lang===l?BLACK:BORDER),borderRadius:RD,
+                        padding:"5px 14px",fontSize:12,cursor:"pointer",
+                        fontFamily:"'DM Sans',sans-serif",fontWeight:lang===l?700:500,
+                        transition:"all .15s"}}>
+                {l}
+              </button>
+            );
+          })}
+        </div>
+      </div>
       <div style={{width:"100%",maxWidth:440,textAlign:"center"}}>
         <div style={{fontSize:11,color:MUTED,letterSpacing:".35em",marginBottom:22,fontWeight:600}}>KIUN · 氣運</div>
         <div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:22}}>{["🌿","🔥","🌍","🪙","💧"].map(function(em){return <span key={em} style={{fontSize:28,lineHeight:1}}>{em}</span>;})}</div>
@@ -728,6 +754,34 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
         {tab==="today"&&(
           <div>
             <div style={{fontSize:11,color:MUTED,textAlign:"center",marginBottom:18,fontWeight:500}}>{dateStr}</div>
+
+            {/* 에너지 히어로 카드 */}
+            <Card style={{textAlign:"center",marginBottom:16,background:BLACK,color:WHITE}}>
+              <div style={{fontSize:72,marginBottom:4,lineHeight:1}}>{e.emoji}</div>
+              <div style={{fontSize:24,fontWeight:800,color:WHITE,marginBottom:4,letterSpacing:"-.02em"}}>{e.name[lang]}</div>
+              <div style={{fontSize:12,color:"rgba(255,255,255,0.5)",marginBottom:20}}>{e.type[lang]}</div>
+
+              {/* 대표 장신구 심볼 */}
+              <div style={{background:"rgba(255,255,255,0.08)",borderRadius:14,padding:"16px 20px",marginBottom:16}}>
+                <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:".2em",textTransform:"uppercase",marginBottom:10,fontFamily:"monospace",fontWeight:600}}>
+                  {lang==="KO"?"나의 기운 장신구":lang==="JP"?"気運アクセサリー":"Energy Accessory"}
+                </div>
+                <div style={{fontSize:48,marginBottom:8}}>{e.symbol.emoji}</div>
+                <div style={{fontSize:14,color:WHITE,fontWeight:700,marginBottom:2}}>{e.symbol[lang]}</div>
+              </div>
+
+              {/* 컬러 팔레트 */}
+              <div style={{display:"flex",justifyContent:"center",gap:8}}>
+                {e.hex.map(function(h,i){
+                  return(
+                    <div key={h} style={{display:"flex",flexDirection:"column",alignItems:"center",gap:4}}>
+                      <div style={{width:32,height:32,borderRadius:"50%",background:h,border:"2px solid rgba(255,255,255,0.2)"}}></div>
+                      <span style={{fontSize:9,color:"rgba(255,255,255,0.4)",fontFamily:"monospace"}}>{e.colors[lang][i]}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:12}}>
               <Card style={{textAlign:"center",marginBottom:0}}><Lbl>{t.myEl}</Lbl><div style={{fontSize:36,marginBottom:6}}>{e.emoji}</div><div style={{fontSize:15,color:BLACK,fontWeight:700,marginBottom:3}}>{e.name[lang]}</div><div style={{fontSize:11,color:SUB}}>{t.stem(myElStem)}</div><div style={{fontSize:9,color:MUTED,marginTop:2}}>{t.fixEl}</div></Card>
               <Card style={{textAlign:"center",marginBottom:0}}><Lbl>{t.tdEl} · {ij.label}</Lbl><div style={{fontSize:36,marginBottom:6}}>{td.emoji}</div><div style={{fontSize:15,color:BLACK,fontWeight:700,marginBottom:3}}>{td.name[lang]}</div><div style={{fontSize:11,color:SUB}}>{td.type[lang]}</div><div style={{fontSize:9,color:MUTED,marginTop:2}}>{t.dayEl}</div></Card>
@@ -744,6 +798,34 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
               <p style={{fontSize:13,color:SUB,lineHeight:1.8,margin:0}}>{REL_MSG[rel][lang]}</p>
             </Card>
             <ElRelSection myElId={myElId} lang={lang} t={t}/>
+
+            {/* 나의 기운 장신구 */}
+            {(function(){
+              var myAcc=ACC[myElId];
+              var items=myAcc.items[lang].slice(0,3);
+              var kws=myAcc.kw[lang];
+              var lbl={KO:"나의 기운 장신구 — "+e.name.KO,EN:"My K-Energy Accessories — "+e.name.EN,JP:"私の気運アクセサリー — "+e.name.JP}[lang];
+              var searchLbl={KO:"검색",EN:"Search",JP:"検索"}[lang];
+              function sUrl(kw){return"https://www.musinsa.com/search/goods?q="+encodeURIComponent(kw);}
+              return(
+                <Card>
+                  <Lbl>{lbl}</Lbl>
+                  <div style={{display:"flex",flexDirection:"column",gap:7}}>
+                    {items.map(function(item,i){
+                      return(
+                        <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 13px",border:"1.5px solid "+BORDER,borderRadius:12,background:BG}}>
+                          <span style={{fontSize:13,color:BLACK}}>— {item}</span>
+                          <a href={sUrl(kws[i]||item)} target="_blank" rel="noreferrer"
+                            style={{background:BLACK,color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
+                            {searchLbl} →
+                          </a>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </Card>
+              );
+            })()}
             {/* K-스타 */}
             <Card>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14}}>
