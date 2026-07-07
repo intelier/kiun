@@ -66,6 +66,37 @@ var ACC={
 };
 var ACC_GUIDE={same:{KO:"내 기운이 가장 강한 날. 내 오행 컬러 장신구를 과감하게 착용하세요.",EN:"Your energy is at its peak. Wear your element accessories boldly.",JP:"自分の気運が最も強い日。五行カラーのアクセサリーを大胆に着けましょう。"},gen_me:{KO:"하늘이 돕는 날. 오늘 일진 컬러 액세서리를 포인트로 더하면 기운이 증폭돼요.",EN:"Heaven supports you. Add a small accent in today's energy color to amplify.",JP:"天が助ける日。今日の日辰カラーのアクセサリーをポイントに加えましょう。"},i_gen:{KO:"기운이 빠져나가는 날. 내 오행 컬러 장신구로 중심을 잡으세요.",EN:"Your energy drains today. Ground yourself with your element accessories.",JP:"気運が流れ出る日。五行カラーのアクセサリーで中心を保ちましょう。"},kills_me:{KO:"기운이 눌리는 날. 내 오행 컬러 장신구가 방패가 되어 보호해줘요.",EN:"Your energy is suppressed. Your element accessories act as a protective shield.",JP:"気運が抑えられる日。五行カラーのアクセサリーが盾となって守ります。"},i_kill:{KO:"오늘 당신이 가장 강해요. 선명하고 존재감 있는 장신구로 기운을 표현하세요.",EN:"You are the strongest today. Show your power with a striking accessory.",JP:"今日はあなたが最強。存在感のあるアクセサリーで気運を表現しましょう。"}};
 
+// ── 쿠팡파트너스 제휴 링크 (오행별) ───────────────────
+var COUPANG={
+  mok:{
+    acc:["https://link.coupang.com/a/fbPopO2SIK","https://link.coupang.com/a/fbPZsi1fiK","https://link.coupang.com/a/fbQz2BSluS"],
+    items:["https://link.coupang.com/a/fbQaZDjqo0","https://link.coupang.com/a/fbQb9A8ufA","https://link.coupang.com/a/fbQdaRbBQa"],
+    prints:["https://link.coupang.com/a/fbQeibed1U","https://link.coupang.com/a/fbQfHAjNCK","https://link.coupang.com/a/fbQgVCgm8y"],
+  },
+  hwa:{
+    acc:["https://link.coupang.com/a/fbQhTakTZI","https://link.coupang.com/a/fbQjEbIJ1E","https://link.coupang.com/a/fbQlfzxyg0"],
+    items:["https://link.coupang.com/a/fbQqUPWq7M","https://link.coupang.com/a/fbQr1JyQrQ","https://link.coupang.com/a/fbQsZVndv2"],
+    prints:["https://link.coupang.com/a/fbQuz8ROX6","https://link.coupang.com/a/fbQvOmvsbI","https://link.coupang.com/a/fbQwTNGfxk"],
+  },
+  to:{
+    acc:["https://link.coupang.com/a/fbQx0zZ6Cy","https://link.coupang.com/a/fbQy3kM2Bo","https://link.coupang.com/a/fbQBChTNm0"],
+    items:["https://link.coupang.com/a/fbQCHEdZ8e","https://link.coupang.com/a/fbQEsVt4sS","https://link.coupang.com/a/fbQGqlzavc"],
+    prints:["https://link.coupang.com/a/fbQHFua3ky","https://link.coupang.com/a/fbQIB16Wtg","https://link.coupang.com/a/fbQJwuyO9A"],
+  },
+  geum:{
+    acc:["https://link.coupang.com/a/fbQKmSo7rM","https://link.coupang.com/a/fbQLjXbl8L","https://link.coupang.com/a/fbQL5kcS0i"],
+    items:["https://link.coupang.com/a/fbQMV7EAns","https://link.coupang.com/a/fbQN8D9wku","https://link.coupang.com/a/fbQO98Zir6"],
+    prints:["https://link.coupang.com/a/fbQQy1nuIm","https://link.coupang.com/a/fbQRYhfnC8","https://link.coupang.com/a/fbQS4PsjlY"],
+  },
+  su:{
+    acc:["https://link.coupang.com/a/fbQT0Sloo8","https://link.coupang.com/a/fbQVcDddSu","https://link.coupang.com/a/fbQX1SR3HE"],
+    items:["https://link.coupang.com/a/fbQY75JsT6","https://link.coupang.com/a/fbQZYRoEKq","https://link.coupang.com/a/fbQ0Yztgnk"],
+    prints:["https://link.coupang.com/a/fbQ6KKTBBY","https://link.coupang.com/a/fbQ7TYi42m","https://link.coupang.com/a/fbRb8EQx5g"],
+  },
+};
+var COUPANG_NOTICE={KO:"이 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.",EN:"Affiliate link — commission may be earned via Coupang Partners.",JP:"このリンクはCoupang Partners提携リンクです。"};
+function cpLink(elId,type,idx){return(COUPANG[elId]&&COUPANG[elId][type]&&COUPANG[elId][type][idx])||"";}
+
 // ── 쇼핑 플랫폼 (언어별) ───────────────────────────────
 var PLT_KO=[
   {name:"무신사",url:function(q,id){return id?"https://www.musinsa.com/search/goods?q="+q+"&utm_source=kiun&utm_campaign="+id:"https://www.musinsa.com/search/goods?q="+q;}},
@@ -213,7 +244,7 @@ function ShopButtons({kw,lang,affIds,t}){
 }
 
 // ── 상품 카드 ──────────────────────────────────────────
-function ProductCard({product,affIds,lang,t}){
+function ProductCard({product,affIds,lang,t,coupangUrl}){
   var [open,setOpen]=useState(false);
   var [copied,setCopied]=useState(null);
   var q=encodeURIComponent(product.kw);
@@ -228,10 +259,14 @@ function ProductCard({product,affIds,lang,t}){
           <span style={{background:BG,border:"1px solid "+BORDER,borderRadius:RD,padding:"2px 10px",fontSize:9,color:SUB,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginRight:8}}>{product.tag[lang]}</span>
           <span style={{fontSize:13,color:BLACK,fontFamily:"'DM Sans',sans-serif"}}>{product[lang]}</span>
         </div>
-        <div style={{display:"flex",alignItems:"center",gap:8}}>
+        <div style={{display:"flex",alignItems:"center",gap:6}}>
           <span style={{fontSize:14,color:BLACK,fontWeight:700}}>{product.price}</span>
-          <button onClick={function(){setOpen(!open);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"4px 14px",fontSize:11,color:SUB,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>
-            {open?(lang==="KO"?"접기":lang==="JP"?"閉じる":"Fold"):(lang==="KO"?"쇼핑 링크":lang==="JP"?"ショッピング":"Shop Links")}
+          {coupangUrl&&<a href={coupangUrl} target="_blank" rel="noreferrer"
+            style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"5px 12px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:700,textDecoration:"none",whiteSpace:"nowrap"}}>
+            🛒 {lang==="KO"?"쿠팡":"Coupang"}
+          </a>}
+          <button onClick={function(){setOpen(!open);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"4px 12px",fontSize:11,color:SUB,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>
+            {open?(lang==="KO"?"접기":lang==="JP"?"閉じる":"Fold"):(lang==="KO"?"더보기":lang==="JP"?"もっと":"More")}
           </button>
         </div>
       </div>
@@ -246,7 +281,6 @@ function ProductCard({product,affIds,lang,t}){
                   <div style={{width:7,height:7,borderRadius:"50%",background:BLACK}}></div>
                   <span style={{fontSize:12,color:BLACK,fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>{p.name}</span>
                   {p.note&&<span style={{fontSize:10,color:MUTED}}>{p.note}</span>}
-                  {id&&lang==="KO"&&<span style={{fontSize:10,color:SUB,fontFamily:"'DM Sans',sans-serif"}}>제휴</span>}
                 </div>
                 <div style={{display:"flex",gap:4}}>
                   <a href={url} target="_blank" rel="noreferrer" style={{border:"1.5px solid "+BORDER,borderRadius:RD,padding:"3px 12px",fontSize:10,color:BLACK,textDecoration:"none",fontFamily:"'DM Sans',sans-serif",fontWeight:600}}>{moveTx[lang]}</a>
@@ -257,6 +291,7 @@ function ProductCard({product,affIds,lang,t}){
               </div>
             );
           })}
+          {coupangUrl&&<div style={{fontSize:9,color:MUTED,marginTop:4,lineHeight:1.5}}>{COUPANG_NOTICE[lang]}</div>}
         </div>
       )}
     </div>
@@ -304,7 +339,9 @@ function ElRelSection({myElId,lang,t}){
 // ── 액세서리 섹션 ──────────────────────────────────────
 function AccSection({myElId,rel,affIds,lang,t}){
   var acc=ACC[myElId],guide=ACC_GUIDE[rel][lang],items=acc.items[lang],prints=acc.prints[lang],stone=acc.stone[lang],kws=acc.kw[lang];
-  function sUrl(kw){return getSearchUrl(kw,lang,affIds);}
+  function itemLink(i){return cpLink(myElId,"acc",i)||getSearchUrl(kws[i]||items[i],lang,affIds);}
+  function printLink(i){return cpLink(myElId,"prints",i)||getSearchUrl(prints[i],lang,affIds);}
+  var shopLbl=lang==="KO"?"🛒 쿠팡":"🛒 Coupang";
   return(
     <Card>
       <Lbl>{t.accTitle}</Lbl>
@@ -316,7 +353,7 @@ function AccSection({myElId,rel,affIds,lang,t}){
             return(
               <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",border:"1.5px solid "+BORDER,borderRadius:12,background:WHITE}}>
                 <span style={{fontSize:13,color:BLACK}}>— {item}</span>
-                <a href={sUrl(kws[i]||item)} target="_blank" rel="noreferrer" style={{background:BLACK,color:WHITE,borderRadius:RD,padding:"4px 14px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>{t.search}</a>
+                <a href={itemLink(i)} target="_blank" rel="noreferrer" style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"4px 14px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>{shopLbl}</a>
               </div>
             );
           })}
@@ -325,10 +362,11 @@ function AccSection({myElId,rel,affIds,lang,t}){
       <div style={{marginBottom:14}}>
         <div style={{fontSize:11,color:BLACK,fontWeight:700,marginBottom:8}}>{t.prtSug}</div>
         <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-          {prints.map(function(p){return <a key={p} href={sUrl(p)} target="_blank" rel="noreferrer" style={{border:"1.5px solid "+BLACK,borderRadius:RD,padding:"5px 14px",fontSize:12,color:BLACK,textDecoration:"none",fontWeight:500}}>{p}</a>;})}
+          {prints.map(function(p,i){return <a key={p} href={printLink(i)} target="_blank" rel="noreferrer" style={{border:"1.5px solid "+BLACK,borderRadius:RD,padding:"5px 14px",fontSize:12,color:BLACK,textDecoration:"none",fontWeight:500}}>{p}</a>;})}
         </div>
       </div>
       <div style={{background:BG,borderRadius:10,padding:"9px 13px",fontSize:11,color:SUB}}>✦ {t.stoneLbl} — {stone}</div>
+      <div style={{fontSize:9,color:MUTED,marginTop:8,lineHeight:1.5}}>{COUPANG_NOTICE[lang]}</div>
     </Card>
   );
 }
@@ -803,26 +841,26 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
             {(function(){
               var myAcc=ACC[myElId];
               var items=myAcc.items[lang].slice(0,3);
-              var kws=myAcc.kw[lang];
               var lbl={KO:"나의 기운 장신구 — "+e.name.KO,EN:"My K-Energy Accessories — "+e.name.EN,JP:"私の気運アクセサリー — "+e.name.JP}[lang];
-              var searchLbl={KO:"검색",EN:"Search",JP:"検索"}[lang];
-              function sUrl(kw){return"https://www.musinsa.com/search/goods?q="+encodeURIComponent(kw);}
+              var shopLbl={KO:"🛒 쿠팡",EN:"🛒 Coupang",JP:"🛒 Coupang"}[lang];
               return(
                 <Card>
                   <Lbl>{lbl}</Lbl>
                   <div style={{display:"flex",flexDirection:"column",gap:7}}>
                     {items.map(function(item,i){
+                      var link=cpLink(myElId,"acc",i);
                       return(
                         <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 13px",border:"1.5px solid "+BORDER,borderRadius:12,background:BG}}>
                           <span style={{fontSize:13,color:BLACK}}>— {item}</span>
-                          <a href={sUrl(kws[i]||item)} target="_blank" rel="noreferrer"
-                            style={{background:BLACK,color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
-                            {searchLbl} →
-                          </a>
+                          {link&&<a href={link} target="_blank" rel="noreferrer"
+                            style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
+                            {shopLbl}
+                          </a>}
                         </div>
                       );
                     })}
                   </div>
+                  <div style={{fontSize:9,color:MUTED,marginTop:8,lineHeight:1.5}}>{COUPANG_NOTICE[lang]}</div>
                 </Card>
               );
             })()}
@@ -983,7 +1021,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
               <div style={{fontSize:12,color:SUB}}>{t.matLbl}: <strong style={{color:BLACK}}>{e.mat[lang]}</strong> · {t.avoidLbl}: <strong style={{color:BLACK}}>{e.avoid[lang]}</strong></div>
             </Card>
             <div style={{display:"flex",flexWrap:"wrap",gap:6,marginBottom:12}}>{e.styles[lang].map(function(s){return <span key={s} style={{border:"1.5px solid "+BORDER,borderRadius:RD,padding:"5px 14px",fontSize:12,color:BLACK,fontWeight:500}}>{s}</span>;})}</div>
-            <div><Lbl>{t.items}</Lbl>{e.products.map(function(p,i){return <ProductCard key={i} product={p} affIds={affIds} lang={lang} t={t}/>;})}</div>
+            <div><Lbl>{t.items}</Lbl>{e.products.map(function(p,i){return <ProductCard key={i} product={p} affIds={affIds} lang={lang} t={t} coupangUrl={cpLink(myElId,"items",i)}/>;})}</div>
             <AccSection myElId={myElId} rel={rel} affIds={affIds} lang={lang} t={t}/>
           </div>
         )}
