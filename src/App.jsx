@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 // ── 팔레트 ─────────────────────────────────────────────
-var BG="#F3F0EB",WHITE="#FFFFFF",BLACK="#111111",SUB="#5C5650",MUTED="#A09890",BORDER="#E6E0D8";
+var BG="#FAFAFA",WHITE="#FFFFFF",BLACK="#111111",SUB="#6B7280",MUTED="#9CA3AF",BORDER="#E5E7EB";
 var SHD="0 2px 8px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.04)",RD=100;
 
 // ── 사주 계산 ──────────────────────────────────────────
@@ -561,105 +561,85 @@ function Landing({lang,setLang,onDone}){
   var maxDay=year&&month?new Date(+year,+month,0).getDate():31;
   var days=Array.from({length:maxDay},function(_,i){return i+1;});
   var ready=!!(year&&month&&day&&gender);
-  var t=TX[lang];
-  var ldata={KO:{h1a:"What's your",h1b:"K-Energy type?",lbl:"생년월일 · 성별 입력",ly:"태어난 해",lm:"달",ld:"일",py:"년도",pm:"월",pd:"일",ys:"년",ds:"일",rf:function(y,m,d){return y+"년 "+m+"월 "+d+"일";},go:"기운 진단 시작하기",wait:"생년월일과 성별을 입력해주세요",p:"생년월일로 나만의 오행 기운을 진단하고\n오늘의 패션을 완성하세요",glbl:"성별",gf:"여성",gm:"남성"},EN:{h1a:"What's your",h1b:"K-Energy type?",lbl:"Birth Date & Gender",ly:"Birth Year",lm:"Month",ld:"Day",py:"Year",pm:"Month",pd:"Day",ys:"",ds:"",rf:function(y,m,d){return y+" / "+m+" / "+d;},go:"Discover My K-Energy",wait:"Please enter your birth date & gender",p:"Find your unique Korean energy type through Saju\nand let it guide your style every day",glbl:"Gender",gf:"Female",gm:"Male"},JP:{h1a:"あなたの",h1b:"K-エネルギータイプは？",lbl:"生年月日・性別を入力",ly:"生まれた年",lm:"月",ld:"日",py:"年",pm:"月",pd:"日",ys:"年",ds:"日",rf:function(y,m,d){return y+"年 "+m+"月 "+d+"日";},go:"気運を診断する",wait:"生年月日と性別を入力してください",p:"生年月日で五行の気運を診断し\n毎日のファッションをガイドします",glbl:"性別",gf:"女性",gm:"男性"}}[lang];
-  function ss(v){return{width:"100%",background:WHITE,border:"1.5px solid "+(v?BLACK:BORDER),borderRadius:12,padding:"11px 12px",color:v?BLACK:MUTED,fontSize:13,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500,appearance:"none",WebkitAppearance:"none"};}
+  var ldata={
+    KO:{ly:"태어난 해",lm:"달",ld:"일",py:"년도",pm:"월",pd:"일",ys:"년",ds:"일",rf:function(y,m,d){return y+"년 "+m+"월 "+d+"일";},go:"기운 진단 시작하기",wait:"생년월일과 성별을 선택해주세요",p:"생년월일로 나만의 오행 기운을 진단하고\n오늘의 패션을 완성하세요",glbl:"성별",gf:"여성",gm:"남성"},
+    EN:{ly:"Birth Year",lm:"Month",ld:"Day",py:"Year",pm:"Month",pd:"Day",ys:"",ds:"",rf:function(y,m,d){return y+" / "+m+" / "+d;},go:"Discover My K-Energy",wait:"Select your birth date & gender",p:"Discover your K-Energy type through Saju\nand complete today's perfect outfit",glbl:"Gender",gf:"Female",gm:"Male"},
+    JP:{ly:"生まれた年",lm:"月",ld:"日",py:"年",pm:"月",pd:"日",ys:"年",ds:"日",rf:function(y,m,d){return y+"年 "+m+"月 "+d+"日";},go:"気運を診断する",wait:"生年月日と性別を選択してください",p:"生年月日で五行の気運を診断し\n今日のファッションを完成させましょう",glbl:"性別",gf:"女性",gm:"男性"},
+  }[lang];
+  function ss(v){return{width:"100%",background:WHITE,border:"1.5px solid "+(v?SUB:BORDER),borderRadius:12,padding:"11px 12px",color:v?BLACK:MUTED,fontSize:13,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500,appearance:"none",WebkitAppearance:"none"};}
   return(
-    <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"56px 22px 40px",fontFamily:"'DM Sans',sans-serif"}}>
-      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(243,240,235,0.95)",backdropFilter:"blur(8px)",borderBottom:"1px solid "+BORDER,padding:"10px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <span style={{fontSize:11,letterSpacing:".3em",color:BLACK,fontFamily:"monospace",fontWeight:700}}>KIUN · 氣運</span>
-        <div style={{display:"flex",alignItems:"center",gap:6}}>
-          <span style={{fontSize:10,color:MUTED,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginRight:4}}>
-            {lang==="KO"?"언어":lang==="JP"?"言語":"Language"}
-          </span>
-          {["KO","EN","JP"].map(function(l){
-            return(
-              <button key={l} onClick={function(){setLang(l);}}
-                style={{background:lang===l?BLACK:"transparent",color:lang===l?WHITE:SUB,
-                        border:"1.5px solid "+(lang===l?BLACK:BORDER),borderRadius:RD,
-                        padding:"5px 14px",fontSize:12,cursor:"pointer",
-                        fontFamily:"'DM Sans',sans-serif",fontWeight:lang===l?700:500,
-                        transition:"all .15s"}}>
-                {l}
-              </button>
-            );
-          })}
-        </div>
+    <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"64px 22px 48px",fontFamily:"'DM Sans',sans-serif"}}>
+      {/* 상단 바 */}
+      <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(250,250,250,0.95)",backdropFilter:"blur(12px)",borderBottom:"1px solid "+BORDER,padding:"12px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+        <span style={{fontSize:11,letterSpacing:".35em",color:BLACK,fontFamily:"monospace",fontWeight:600}}>KIUN · 氣運</span>
+        <LT lang={lang} onChange={setLang}/>
       </div>
-      <div style={{width:"100%",maxWidth:440,textAlign:"center"}}>
-        <div style={{fontSize:11,color:MUTED,letterSpacing:".35em",marginBottom:22,fontWeight:600}}>KIUN · 氣運</div>
-        <div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:22}}>{["🌿","🔥","🌍","🪙","💧"].map(function(em){return <span key={em} style={{fontSize:28,lineHeight:1}}>{em}</span>;})}</div>
-        <h1 style={{fontSize:"clamp(32px,7vw,52px)",fontWeight:800,color:BLACK,lineHeight:1.1,marginBottom:14,letterSpacing:"-.02em"}}>
-          <span style={{display:"block",fontSize:"clamp(16px,3.5vw,24px)",fontWeight:400,color:SUB,marginBottom:4}}>{ldata.h1a}</span>{ldata.h1b}
-        </h1>
-        <p style={{fontSize:14,color:SUB,lineHeight:1.8,marginBottom:24,whiteSpace:"pre-line"}}>{ldata.p}</p>
 
-        {/* 스텝 가이드 */}
-        <div style={{display:"flex",flexDirection:"column",gap:8,marginBottom:28,width:"100%",maxWidth:320}}>
-          {[
-            {n:"01", KO:"생년월일과 성별을 입력하세요", EN:"Enter your birth date & gender", JP:"生年月日と性別を入力"},
-            {n:"02", KO:"나만의 K-에너지 기운을 진단받으세요", EN:"Discover your K-Energy type", JP:"あなたの気運タイプを診断"},
-            {n:"03", KO:"오늘의 스타일링을 받으세요", EN:"Get today's personalized styling", JP:"今日のスタイリングを受け取る"},
-            {n:"+", KO:"나와 같은 기운의 K스타를 찾아보세요", EN:"+ Find out which K-Star shares your energy", JP:"同じ気運のK-スターを見つけよう"},
-          ].map(function(step){
-            return(
-              <div key={step.n} style={{display:"flex",alignItems:"center",gap:12}}>
-                <span style={{fontSize:10,color:MUTED,fontFamily:"monospace",fontWeight:700,flexShrink:0,letterSpacing:".05em"}}>{step.n}</span>
-                <div style={{flex:1,height:1,background:BORDER}}></div>
-                <span style={{fontSize:12,color:SUB,fontWeight:500,textAlign:"right"}}>{step[lang]}</span>
-              </div>
-            );
-          })}
-        </div>
-        <div style={{display:"flex",justifyContent:"center",gap:8,marginBottom:28}}>
-          {Object.keys(CELEBS).map(function(id){return <span key={id} style={{background:WHITE,border:"1.5px solid "+BORDER,borderRadius:RD,padding:"8px 16px",fontSize:22,boxShadow:"0 1px 3px rgba(0,0,0,0.05)"}}>{EL[id].emoji}</span>;})}
-        </div>
-        <div style={{background:WHITE,borderRadius:20,padding:"26px 22px",boxShadow:SHD}}>
-          <div style={{fontSize:11,color:MUTED,letterSpacing:".22em",textTransform:"uppercase",textAlign:"center",marginBottom:20,fontWeight:600}}>{ldata.lbl}</div>
-          <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr 1fr",gap:8,marginBottom:14}}>
-            <div><div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:5,fontWeight:600}}>{ldata.ly}</div>
+      <div style={{width:"100%",maxWidth:400,textAlign:"center"}}>
+        {/* 로고 */}
+        <div style={{fontSize:11,color:MUTED,letterSpacing:".5em",marginBottom:40,fontFamily:"monospace",fontWeight:600,textTransform:"uppercase"}}>K-Energy Type</div>
+
+        {/* 태그라인 */}
+        <p style={{fontSize:15,color:SUB,lineHeight:2,marginBottom:44,whiteSpace:"pre-line"}}>{ldata.p}</p>
+
+        {/* 입력 카드 */}
+        <div style={{background:WHITE,borderRadius:20,padding:"28px 22px",boxShadow:SHD}}>
+          {/* 날짜 */}
+          <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr 1fr",gap:8,marginBottom:12}}>
+            <div>
+              <div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:6,fontWeight:600}}>{ldata.ly}</div>
               <select value={year} style={ss(year)} onChange={function(e){setYear(e.target.value);setDay("");}}>
                 <option value="">{ldata.py}</option>{YEARS.map(function(y){return <option key={y} value={y}>{y}{ldata.ys}</option>;})}
-              </select></div>
-            <div><div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:5,fontWeight:600}}>{ldata.lm}</div>
+              </select>
+            </div>
+            <div>
+              <div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:6,fontWeight:600}}>{ldata.lm}</div>
               <select value={month} style={ss(month)} onChange={function(e){setMonth(e.target.value);setDay("");}}>
                 <option value="">{ldata.pm}</option>{MON[lang].map(function(m,i){return <option key={i} value={i+1}>{m}</option>;})}
-              </select></div>
-            <div><div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:5,fontWeight:600}}>{ldata.ld}</div>
+              </select>
+            </div>
+            <div>
+              <div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:6,fontWeight:600}}>{ldata.ld}</div>
               <select value={day} style={ss(day)} onChange={function(e){setDay(e.target.value);}}>
                 <option value="">{ldata.pd}</option>{days.map(function(d){return <option key={d} value={d}>{d}{ldata.ds}</option>;})}
-              </select></div>
+              </select>
+            </div>
           </div>
-          {ready&&<div style={{border:"1.5px solid "+BORDER,borderRadius:10,padding:"8px 14px",fontSize:12,color:SUB,textAlign:"center",marginBottom:12,fontWeight:500}}>{ldata.rf(year,month,day)} · {gender===("F")?ldata.gf:ldata.gm}</div>}
-          {/* 성별 선택 */}
-          <div style={{marginBottom:14}}>
+
+          {/* 성별 */}
+          <div style={{marginBottom:16}}>
             <div style={{fontSize:9,color:MUTED,letterSpacing:".15em",marginBottom:8,fontWeight:600}}>{ldata.glbl}</div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
               {[{val:"F",label:ldata.gf},{val:"M",label:ldata.gm}].map(function(g){
                 return(
                   <button key={g.val} onClick={function(){setGender(g.val);}}
-                    style={{background:gender===g.val?BLACK:WHITE,color:gender===g.val?WHITE:BLACK,border:"1.5px solid "+(gender===g.val?BLACK:BORDER),borderRadius:12,padding:"11px",fontSize:14,cursor:"pointer",fontWeight:700,transition:"all .15s"}}>
+                    style={{background:gender===g.val?BLACK:WHITE,color:gender===g.val?WHITE:BLACK,border:"1.5px solid "+(gender===g.val?BLACK:BORDER),borderRadius:12,padding:"11px",fontSize:13,cursor:"pointer",fontWeight:600,transition:"all .15s",fontFamily:"'DM Sans',sans-serif"}}>
                     {g.label}
                   </button>
                 );
               })}
             </div>
           </div>
-          <Pill solid onClick={function(){if(ready)onDone(+year,+month,+day,gender);}} disabled={!ready} style={{width:"100%",padding:"14px",fontSize:15}}>{ready?ldata.go:ldata.wait}</Pill>
+
+          {ready&&<div style={{border:"1px solid "+BORDER,borderRadius:10,padding:"8px 14px",fontSize:12,color:MUTED,textAlign:"center",marginBottom:12}}>{ldata.rf(year,month,day)} · {gender==="F"?ldata.gf:ldata.gm}</div>}
+
+          <Pill solid onClick={function(){if(ready)onDone(+year,+month,+day,gender);}} disabled={!ready} style={{width:"100%",padding:"14px",fontSize:14}}>
+            {ready?ldata.go:ldata.wait}
+          </Pill>
         </div>
+
         <WhatIsSaju lang={lang}/>
 
         {/* Contact */}
-        <div style={{marginTop:28,textAlign:"center"}}>
-          <div style={{fontSize:9,color:MUTED,letterSpacing:".2em",textTransform:"uppercase",marginBottom:6,fontFamily:"monospace",fontWeight:600}}>Contact</div>
-          <a href="mailto:sinkita@naver.com" style={{fontSize:12,color:SUB,textDecoration:"none",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>
-            sinkita@naver.com
-          </a>
+        <div style={{marginTop:32,textAlign:"center"}}>
+          <div style={{fontSize:9,color:MUTED,letterSpacing:".2em",textTransform:"uppercase",marginBottom:6,fontFamily:"monospace"}}>Contact</div>
+          <a href="mailto:sinkita@naver.com" style={{fontSize:12,color:MUTED,textDecoration:"none",fontFamily:"'DM Sans',sans-serif"}}>sinkita@naver.com</a>
         </div>
       </div>
     </div>
   );
 }
+
 
 // ── 로딩 ──────────────────────────────────────────────
 function Loader({lang}){
@@ -793,6 +773,11 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
           <div>
             <div style={{fontSize:11,color:MUTED,textAlign:"center",marginBottom:18,fontWeight:500}}>{dateStr}</div>
 
+            {/* 나의 기운 타이틀 */}
+            <div style={{fontSize:20,fontWeight:800,color:BLACK,marginBottom:16,letterSpacing:"-.02em",fontFamily:"'DM Sans',sans-serif"}}>
+              {lang==="KO"?"나의 기운":lang==="JP"?"私の気運":"My K-Energy"}
+            </div>
+
             {/* 에너지 히어로 카드 */}
             <Card style={{textAlign:"center",marginBottom:16,background:BLACK,color:WHITE}}>
               <div style={{fontSize:72,marginBottom:4,lineHeight:1}}>{e.emoji}</div>
@@ -802,7 +787,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
               {/* 대표 장신구 심볼 */}
               <div style={{background:"rgba(255,255,255,0.08)",borderRadius:14,padding:"16px 20px",marginBottom:16}}>
                 <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:".2em",textTransform:"uppercase",marginBottom:10,fontFamily:"monospace",fontWeight:600}}>
-                  {lang==="KO"?"나의 기운 장신구":lang==="JP"?"気運アクセサリー":"Energy Accessory"}
+                  {lang==="KO"?"내 기운의 액세서리":lang==="JP"?"気運のアクセサリー":"Energy Accessories"}
                 </div>
                 <div style={{fontSize:48,marginBottom:8}}>{e.symbol.emoji}</div>
                 <div style={{fontSize:14,color:WHITE,fontWeight:700,marginBottom:2}}>{e.symbol[lang]}</div>
@@ -841,7 +826,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
             {(function(){
               var myAcc=ACC[myElId];
               var items=myAcc.items[lang].slice(0,3);
-              var lbl={KO:"나의 기운 장신구 — "+e.name.KO,EN:"My K-Energy Accessories — "+e.name.EN,JP:"私の気運アクセサリー — "+e.name.JP}[lang];
+              var lbl={KO:"내 기운의 액세서리 — "+e.name.KO,EN:"My K-Energy Accessories — "+e.name.EN,JP:"気運のアクセサリー — "+e.name.JP}[lang];
               var shopLbl=lang==="KO"?"🛒 쿠팡":lang==="JP"?"🔍 検索":"🔍 Search";
               var kws=myAcc.kw[lang];
               function getLink(i){return lang==="KO"?(cpLink(myElId,"acc",i)||getSearchUrl(kws[i]||items[i],lang,{})):getSearchUrl(kws[i]||items[i],lang,{});}
