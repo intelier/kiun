@@ -261,9 +261,9 @@ function ProductCard({product,affIds,lang,t,coupangUrl}){
         </div>
         <div style={{display:"flex",alignItems:"center",gap:6}}>
           <span style={{fontSize:14,color:BLACK,fontWeight:700}}>{product.price}</span>
-          {coupangUrl&&<a href={coupangUrl} target="_blank" rel="noreferrer"
+          {coupangUrl&&lang==="KO"&&<a href={coupangUrl} target="_blank" rel="noreferrer"
             style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"5px 12px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:700,textDecoration:"none",whiteSpace:"nowrap"}}>
-            🛒 {lang==="KO"?"쿠팡":"Coupang"}
+            🛒 쿠팡
           </a>}
           <button onClick={function(){setOpen(!open);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"4px 12px",fontSize:11,color:SUB,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>
             {open?(lang==="KO"?"접기":lang==="JP"?"閉じる":"Fold"):(lang==="KO"?"더보기":lang==="JP"?"もっと":"More")}
@@ -339,9 +339,9 @@ function ElRelSection({myElId,lang,t}){
 // ── 액세서리 섹션 ──────────────────────────────────────
 function AccSection({myElId,rel,affIds,lang,t}){
   var acc=ACC[myElId],guide=ACC_GUIDE[rel][lang],items=acc.items[lang],prints=acc.prints[lang],stone=acc.stone[lang],kws=acc.kw[lang];
-  function itemLink(i){return cpLink(myElId,"acc",i)||getSearchUrl(kws[i]||items[i],lang,affIds);}
-  function printLink(i){return cpLink(myElId,"prints",i)||getSearchUrl(prints[i],lang,affIds);}
-  var shopLbl=lang==="KO"?"🛒 쿠팡":"🛒 Coupang";
+  function itemLink(i){return lang==="KO"?(cpLink(myElId,"acc",i)||getSearchUrl(kws[i]||items[i],lang,affIds)):getSearchUrl(kws[i]||items[i],lang,affIds);}
+  function printLink(i){return lang==="KO"?(cpLink(myElId,"prints",i)||getSearchUrl(prints[i],lang,affIds)):getSearchUrl(prints[i],lang,affIds);}
+  var shopLbl=lang==="KO"?"🛒 쿠팡":lang==="JP"?"🔍 検索":"🔍 Search";
   return(
     <Card>
       <Lbl>{t.accTitle}</Lbl>
@@ -353,7 +353,7 @@ function AccSection({myElId,rel,affIds,lang,t}){
             return(
               <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",border:"1.5px solid "+BORDER,borderRadius:12,background:WHITE}}>
                 <span style={{fontSize:13,color:BLACK}}>— {item}</span>
-                <a href={itemLink(i)} target="_blank" rel="noreferrer" style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"4px 14px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>{shopLbl}</a>
+                <a href={itemLink(i)} target="_blank" rel="noreferrer" style={{background:lang==="KO"?"#E13244":BLACK,color:WHITE,borderRadius:RD,padding:"4px 14px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>{shopLbl}</a>
               </div>
             );
           })}
@@ -842,25 +842,26 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
               var myAcc=ACC[myElId];
               var items=myAcc.items[lang].slice(0,3);
               var lbl={KO:"나의 기운 장신구 — "+e.name.KO,EN:"My K-Energy Accessories — "+e.name.EN,JP:"私の気運アクセサリー — "+e.name.JP}[lang];
-              var shopLbl={KO:"🛒 쿠팡",EN:"🛒 Coupang",JP:"🛒 Coupang"}[lang];
+              var shopLbl=lang==="KO"?"🛒 쿠팡":lang==="JP"?"🔍 検索":"🔍 Search";
+              var kws=myAcc.kw[lang];
+              function getLink(i){return lang==="KO"?(cpLink(myElId,"acc",i)||getSearchUrl(kws[i]||items[i],lang,{})):getSearchUrl(kws[i]||items[i],lang,{});}
               return(
                 <Card>
                   <Lbl>{lbl}</Lbl>
                   <div style={{display:"flex",flexDirection:"column",gap:7}}>
                     {items.map(function(item,i){
-                      var link=cpLink(myElId,"acc",i);
                       return(
                         <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 13px",border:"1.5px solid "+BORDER,borderRadius:12,background:BG}}>
                           <span style={{fontSize:13,color:BLACK}}>— {item}</span>
-                          {link&&<a href={link} target="_blank" rel="noreferrer"
-                            style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
+                          <a href={getLink(i)} target="_blank" rel="noreferrer"
+                            style={{background:lang==="KO"?"#E13244":BLACK,color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
                             {shopLbl}
-                          </a>}
+                          </a>
                         </div>
                       );
                     })}
                   </div>
-                  <div style={{fontSize:9,color:MUTED,marginTop:8,lineHeight:1.5}}>{COUPANG_NOTICE[lang]}</div>
+                  {lang==="KO"&&<div style={{fontSize:9,color:MUTED,marginTop:8,lineHeight:1.5}}>{COUPANG_NOTICE[lang]}</div>}
                 </Card>
               );
             })()}
