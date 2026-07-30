@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import Intro from "./Intro.jsx";
 
 // ── 팔레트 ─────────────────────────────────────────────
 var BG="#FAFAFA",WHITE="#FFFFFF",BLACK="#111111",SUB="#6B7280",MUTED="#9CA3AF",BORDER="#E5E7EB";
@@ -1079,7 +1080,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
 
 // ── 루트 ──────────────────────────────────────────────
 export default function KIUN(){
-  var [screen,setScreen]=useState("landing");
+  var [screen,setScreen]=useState("intro");
   var [lang,setLang]=useState("KO");
   var [myElId,setMyElId]=useState(null);
   var [myElStem,setMyElStem]=useState(null);
@@ -1088,6 +1089,7 @@ export default function KIUN(){
   return(
     <div>
       <style dangerouslySetInnerHTML={{__html:"@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');@keyframes kspin{to{transform:rotate(360deg)}}*{box-sizing:border-box;margin:0;padding:0}select{appearance:none;-webkit-appearance:none}body{background:#F3F0EB;font-family:'DM Sans',sans-serif}button:hover{opacity:.88}"}}/>
+      {screen==="intro"&&<Intro lang={lang} setLang={setLang} onEnter={function(){setScreen("landing");}}/>}
       {screen==="landing"&&<Landing lang={lang} setLang={setLang} onDone={handleDone}/>}
       {screen==="loading"&&<Loader lang={lang}/>}
       {screen==="dashboard"&&myElId&&<Dashboard myElId={myElId} myElStem={myElStem} myGender={myGender} lang={lang} setLang={setLang} onReset={function(){setMyElId(null);setMyGender(null);setScreen("landing");}}/>}
