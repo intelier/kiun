@@ -633,7 +633,7 @@ function Landing({lang,setLang,onDone}){
         {/* Contact */}
         <div style={{marginTop:32,textAlign:"center"}}>
           <div style={{fontSize:9,color:MUTED,letterSpacing:".2em",textTransform:"uppercase",marginBottom:6,fontFamily:"monospace"}}>Contact</div>
-          <a href="mailto:sinkita@naver.com" style={{fontSize:12,color:MUTED,textDecoration:"none",fontFamily:"'DM Sans',sans-serif"}}>sinkita@naver.com</a>
+          <a href="https://www.instagram.com/maker.5972" target="_blank" rel="noreferrer" style={{fontSize:12,color:MUTED,textDecoration:"none",fontFamily:"'DM Sans',sans-serif"}}>@maker.5972</a>
         </div>
       </div>
     </div>
