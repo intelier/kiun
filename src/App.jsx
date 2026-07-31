@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 
 // ── 팔레트 ─────────────────────────────────────────────
-var BG="#FAFAFA",WHITE="#FFFFFF",BLACK="#111111",SUB="#6B7280",MUTED="#9CA3AF",BORDER="#E5E7EB";
-var SHD="0 2px 8px rgba(0,0,0,0.06),0 0 0 1px rgba(0,0,0,0.04)",RD=100;
+var BG="#14120F",WHITE="#F6F1E7",BLACK="#1C1810",SUB="#8A7D67",MUTED="#B2A88F",BORDER="#E5DAC0";
+var GOLD="#B68D4C";
+var SHD="0 12px 28px rgba(0,0,0,0.45),0 0 0 1px rgba(182,141,76,0.14)",RD=100;
+var SERIF="'Noto Serif KR',serif";
 
 // ── 사주 계산 ──────────────────────────────────────────
 function getJDN(y,m,d){var yr=y,mo=m;if(mo<=2){yr--;mo+=12;}var A=Math.floor(yr/100),B=2-A+Math.floor(A/4);return Math.floor(365.25*(yr+4716))+Math.floor(30.6001*(mo+1))+d+B-1524;}
@@ -218,7 +220,7 @@ function LT({lang,onChange}){
 
 function Card({children,style}){return <div style={Object.assign({background:WHITE,borderRadius:16,padding:18,marginBottom:12,boxShadow:SHD},style||{})}>{children}</div>;}
 function Lbl({children}){return <div style={{fontSize:9,color:MUTED,fontFamily:"'DM Sans',sans-serif",letterSpacing:".18em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>{children}</div>;}
-function Pill({children,solid,onClick,disabled,style}){return <button onClick={onClick} disabled={disabled} style={Object.assign({background:disabled?BORDER:solid?BLACK:"transparent",color:disabled?MUTED:solid?WHITE:BLACK,border:solid?"none":"1.5px solid "+(disabled?BORDER:BLACK),borderRadius:RD,padding:solid?"12px 24px":"11px 22px",fontSize:14,cursor:disabled?"default":"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,letterSpacing:"-.01em"},style||{})}>{children}</button>;}
+function Pill({children,solid,onClick,disabled,style}){return <button onClick={onClick} disabled={disabled} style={Object.assign({background:disabled?BORDER:solid?GOLD:"transparent",color:disabled?MUTED:solid?BLACK:BLACK,border:solid?"none":"1.5px solid "+(disabled?BORDER:BLACK),borderRadius:RD,padding:solid?"12px 24px":"11px 22px",fontSize:14,cursor:disabled?"default":"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,letterSpacing:"-.01em"},style||{})}>{children}</button>;}
 
 // ── 멀티플랫폼 쇼핑 버튼 ───────────────────────────────
 function ShopButtons({kw,lang,affIds,t}){
@@ -580,7 +582,7 @@ function Landing({lang,setLang,onDone}){
         <div style={{fontSize:11,color:MUTED,letterSpacing:".5em",marginBottom:40,fontFamily:"monospace",fontWeight:600,textTransform:"uppercase"}}>K-Energy Type</div>
 
         {/* 태그라인 */}
-        <p style={{fontSize:15,color:SUB,lineHeight:2,marginBottom:44,whiteSpace:"pre-line"}}>{ldata.p}</p>
+        <p style={{fontSize:15,color:SUB,lineHeight:2,marginBottom:44,whiteSpace:"pre-line",fontFamily:SERIF}}>{ldata.p}</p>
 
         {/* 입력 카드 */}
         <div style={{background:WHITE,borderRadius:20,padding:"28px 22px",boxShadow:SHD}}>
@@ -781,7 +783,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
             {/* 에너지 히어로 카드 */}
             <Card style={{textAlign:"center",marginBottom:16,background:BLACK,color:WHITE}}>
               <div style={{fontSize:72,marginBottom:4,lineHeight:1}}>{e.emoji}</div>
-              <div style={{fontSize:24,fontWeight:800,color:WHITE,marginBottom:4,letterSpacing:"-.02em"}}>{e.name[lang]}</div>
+              <div style={{fontSize:24,fontWeight:800,color:WHITE,marginBottom:4,letterSpacing:"-.02em",fontFamily:SERIF}}>{e.name[lang]}</div>
               <div style={{fontSize:12,color:"rgba(255,255,255,0.5)",marginBottom:20}}>{e.type[lang]}</div>
 
               {/* 대표 장신구 심볼 */}
@@ -962,7 +964,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
                   var shoppingKeyword=s(aiResult.shoppingKeyword);
                   return(
                     <div>
-                      <Card style={{textAlign:"center"}}><div style={{fontSize:20,fontWeight:800,color:BLACK,marginBottom:8}}>"{headline}"</div><p style={{fontSize:13,color:SUB,lineHeight:1.9,margin:0}}>{energyMsg}</p></Card>
+                      <Card style={{textAlign:"center"}}><div style={{fontSize:20,fontWeight:800,color:BLACK,marginBottom:8,fontFamily:SERIF}}>"{headline}"</div><p style={{fontSize:13,color:SUB,lineHeight:1.9,margin:0}}>{energyMsg}</p></Card>
                       {keywords.length>0&&<div style={{display:"flex",justifyContent:"center",gap:6,marginBottom:12,flexWrap:"wrap"}}>{keywords.map(function(kw){return <span key={kw} style={{border:"1.5px solid "+BLACK,borderRadius:RD,padding:"4px 14px",fontSize:12,color:BLACK,fontWeight:600}}>#{kw}</span>;})}</div>}
                       <Card>
                         <Lbl>{t.wdTitle}</Lbl>
@@ -996,7 +998,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
           <div>
             <div style={{textAlign:"center",marginBottom:24}}>
               <div style={{fontSize:48,marginBottom:10}}>{e.emoji}</div>
-              <div style={{fontSize:22,color:BLACK,fontWeight:800,marginBottom:4,letterSpacing:"-.02em"}}>{e.type[lang]}</div>
+              <div style={{fontSize:22,color:BLACK,fontWeight:800,marginBottom:4,letterSpacing:"-.02em",fontFamily:SERIF}}>{e.type[lang]}</div>
               <div style={{fontSize:13,color:SUB}}>{e.desc[lang]}</div>
             </div>
             {activeN===0?<Card style={{display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:8}}><span style={{fontSize:12,color:SUB,fontWeight:500}}>{t.noId}</span><Pill solid onClick={function(){setShowAff(true);}} style={{padding:"8px 16px",fontSize:12}}>{t.affSet}</Pill></Card>:<Card style={{display:"flex",alignItems:"center",gap:6}}><span style={{fontWeight:700}}>✓</span><span style={{fontSize:12,color:SUB,fontWeight:500}}>{t.activeAff(activeN)}</span></Card>}
@@ -1020,7 +1022,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
               <div style={{display:"flex",justifyContent:"center",gap:6,marginBottom:14}}>
                 {["🌺","👕","🧢","🛍"].map(function(em){return <span key={em} style={{fontSize:24}}>{em}</span>;})}
               </div>
-              <div style={{fontSize:22,color:BLACK,fontWeight:800,marginBottom:8,letterSpacing:"-.02em"}}>{t.objTitle}</div>
+              <div style={{fontSize:22,color:BLACK,fontWeight:800,marginBottom:8,letterSpacing:"-.02em",fontFamily:SERIF}}>{t.objTitle}</div>
               <div style={{fontSize:13,color:SUB,lineHeight:1.7,maxWidth:320,margin:"0 auto"}}>{t.objSub}</div>
             </div>
 
@@ -1087,7 +1089,7 @@ export default function KIUN(){
   function handleDone(y,m,d,gender){var r=calcElFromDate(y,m,d);setMyElId(r.elId);setMyElStem(r.stem);setMyGender(gender);setScreen("loading");setTimeout(function(){setScreen("dashboard");},3700);}
   return(
     <div>
-      <style dangerouslySetInnerHTML={{__html:"@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');@keyframes kspin{to{transform:rotate(360deg)}}*{box-sizing:border-box;margin:0;padding:0}select{appearance:none;-webkit-appearance:none}body{background:#F3F0EB;font-family:'DM Sans',sans-serif}button:hover{opacity:.88}"}}/>
+      <style dangerouslySetInnerHTML={{__html:"@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700;800&display=swap');@keyframes kspin{to{transform:rotate(360deg)}}*{box-sizing:border-box;margin:0;padding:0}select{appearance:none;-webkit-appearance:none}body{background:"+BG+";font-family:'DM Sans',sans-serif}button:hover{opacity:.88}"}}/>
       {screen==="landing"&&<Landing lang={lang} setLang={setLang} onDone={handleDone}/>}
       {screen==="loading"&&<Loader lang={lang}/>}
       {screen==="dashboard"&&myElId&&<Dashboard myElId={myElId} myElStem={myElStem} myGender={myGender} lang={lang} setLang={setLang} onReset={function(){setMyElId(null);setMyGender(null);setScreen("landing");}}/>}
