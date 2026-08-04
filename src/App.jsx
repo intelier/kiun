@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 
 // ── 팔레트 ─────────────────────────────────────────────
-var BG="#14120F",WHITE="#F6F1E7",BLACK="#1C1810",SUB="#8A7D67",MUTED="#B2A88F",BORDER="#E5DAC0";
-var GOLD="#B68D4C";
-var SHD="0 12px 28px rgba(0,0,0,0.45),0 0 0 1px rgba(182,141,76,0.14)",RD=100;
-var SERIF="'Noto Serif KR',serif";
+var BG="#FFFFFF",WHITE="#FFFFFF",BLACK="#101010",SUB="#999999",MUTED="#C4C4C4",BORDER="#E0E0E0";
+var SHD="0 0 0 1px "+BORDER,RD=9999;
+var SERIF="'Nanum Gothic Coding',monospace";
 
 // ── 사주 계산 ──────────────────────────────────────────
 function getJDN(y,m,d){var yr=y,mo=m;if(mo<=2){yr--;mo+=12;}var A=Math.floor(yr/100),B=2-A+Math.floor(A/4);return Math.floor(365.25*(yr+4716))+Math.floor(30.6001*(mo+1))+d+B-1524;}
@@ -212,15 +211,15 @@ function LT({lang,onChange}){
     <div style={{display:"flex",alignItems:"center",gap:6}}>
       <span style={{fontSize:9,color:MUTED,fontFamily:"monospace",letterSpacing:".15em",fontWeight:600}}>LANGUAGE</span>
       <div style={{display:"flex",gap:3}}>
-        {["KO","EN","JP"].map(function(l){return(<button key={l} onClick={function(){onChange(l);}} style={{background:lang===l?BLACK:"transparent",color:lang===l?WHITE:MUTED,border:"1px solid "+(lang===l?BLACK:BORDER),borderRadius:RD,padding:"3px 11px",fontSize:10,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>{l}</button>);})}
+        {["KO","EN","JP"].map(function(l){return(<button key={l} onClick={function(){onChange(l);}} style={{background:lang===l?BLACK:"transparent",color:lang===l?WHITE:MUTED,border:"1px solid "+(lang===l?BLACK:BORDER),borderRadius:RD,padding:"3px 11px",fontSize:10,cursor:"pointer",fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:500}}>{l}</button>);})}
       </div>
     </div>
   );
 }
 
-function Card({children,style}){return <div style={Object.assign({background:WHITE,borderRadius:16,padding:18,marginBottom:12,boxShadow:SHD},style||{})}>{children}</div>;}
-function Lbl({children}){return <div style={{fontSize:9,color:MUTED,fontFamily:"'DM Sans',sans-serif",letterSpacing:".18em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>{children}</div>;}
-function Pill({children,solid,onClick,disabled,style}){return <button onClick={onClick} disabled={disabled} style={Object.assign({background:disabled?BORDER:solid?GOLD:"transparent",color:disabled?MUTED:solid?BLACK:BLACK,border:solid?"none":"1.5px solid "+(disabled?BORDER:BLACK),borderRadius:RD,padding:solid?"12px 24px":"11px 22px",fontSize:14,cursor:disabled?"default":"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,letterSpacing:"-.01em"},style||{})}>{children}</button>;}
+function Card({children,style}){return <div style={Object.assign({background:WHITE,borderRadius:8,padding:18,marginBottom:12,boxShadow:SHD},style||{})}>{children}</div>;}
+function Lbl({children}){return <div style={{fontSize:11,color:SUB,fontFamily:"'Nanum Gothic Coding',monospace",letterSpacing:".18em",textTransform:"uppercase",marginBottom:10,fontWeight:500}}>{children}</div>;}
+function Pill({children,solid,onClick,disabled,style}){return <button onClick={onClick} disabled={disabled} style={Object.assign({background:disabled?BORDER:solid?BLACK:"transparent",color:disabled?"#FFFFFF":solid?"#FFFFFF":BLACK,border:solid?"none":"1px solid "+(disabled?BORDER:BLACK),borderRadius:RD,padding:solid?"10px 24px":"10px 22px",fontSize:13,cursor:disabled?"default":"pointer",fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:500,letterSpacing:".02em"},style||{})}>{children}</button>;}
 
 // ── 멀티플랫폼 쇼핑 버튼 ───────────────────────────────
 function ShopButtons({kw,lang,affIds,t}){
@@ -228,7 +227,7 @@ function ShopButtons({kw,lang,affIds,t}){
   var platforms=lang==="EN"?PLT_EN:lang==="JP"?PLT_JP:PLT_KO.slice(0,2);
   return(
     <div style={{marginTop:10}}>
-      <div style={{fontSize:9,color:MUTED,fontFamily:"'DM Sans',sans-serif",letterSpacing:".15em",textTransform:"uppercase",marginBottom:6,fontWeight:600}}>{t.shopPlatforms}</div>
+      <div style={{fontSize:9,color:MUTED,fontFamily:"'Nanum Gothic Coding',monospace",letterSpacing:".15em",textTransform:"uppercase",marginBottom:6,fontWeight:600}}>{t.shopPlatforms}</div>
       <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
         {platforms.map(function(p){
           var id=affIds&&lang==="KO"?(p.name==="무신사"?affIds.musinsa:affIds.cm29):"";
@@ -258,16 +257,16 @@ function ProductCard({product,affIds,lang,t,coupangUrl}){
     <div style={{border:"1.5px solid "+BORDER,borderRadius:14,overflow:"hidden",marginBottom:8,background:WHITE}}>
       <div style={{padding:"12px 16px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:8}}>
         <div>
-          <span style={{background:BG,border:"1px solid "+BORDER,borderRadius:RD,padding:"2px 10px",fontSize:9,color:SUB,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginRight:8}}>{product.tag[lang]}</span>
-          <span style={{fontSize:13,color:BLACK,fontFamily:"'DM Sans',sans-serif"}}>{product[lang]}</span>
+          <span style={{background:BG,border:"1px solid "+BORDER,borderRadius:RD,padding:"2px 10px",fontSize:9,color:SUB,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600,marginRight:8}}>{product.tag[lang]}</span>
+          <span style={{fontSize:13,color:BLACK,fontFamily:"'Nanum Gothic Coding',monospace"}}>{product[lang]}</span>
         </div>
         <div style={{display:"flex",alignItems:"center",gap:6}}>
           <span style={{fontSize:14,color:BLACK,fontWeight:700}}>{product.price}</span>
           {coupangUrl&&lang==="KO"&&<a href={coupangUrl} target="_blank" rel="noreferrer"
-            style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"5px 12px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:700,textDecoration:"none",whiteSpace:"nowrap"}}>
+            style={{background:"#E13244",color:WHITE,borderRadius:RD,padding:"5px 12px",fontSize:11,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:700,textDecoration:"none",whiteSpace:"nowrap"}}>
             🛒 쿠팡
           </a>}
-          <button onClick={function(){setOpen(!open);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"4px 12px",fontSize:11,color:SUB,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>
+          <button onClick={function(){setOpen(!open);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"4px 12px",fontSize:11,color:SUB,cursor:"pointer",fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:500}}>
             {open?(lang==="KO"?"접기":lang==="JP"?"閉じる":"Fold"):(lang==="KO"?"더보기":lang==="JP"?"もっと":"More")}
           </button>
         </div>
@@ -281,12 +280,12 @@ function ProductCard({product,affIds,lang,t,coupangUrl}){
               <div key={p.name} style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:8,padding:"8px 12px",background:WHITE,borderRadius:10,border:"1px solid "+BORDER,marginBottom:6}}>
                 <div style={{display:"flex",alignItems:"center",gap:7,flex:1}}>
                   <div style={{width:7,height:7,borderRadius:"50%",background:BLACK}}></div>
-                  <span style={{fontSize:12,color:BLACK,fontFamily:"'DM Sans',sans-serif",fontWeight:500}}>{p.name}</span>
+                  <span style={{fontSize:12,color:BLACK,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:500}}>{p.name}</span>
                   {p.note&&<span style={{fontSize:10,color:MUTED}}>{p.note}</span>}
                 </div>
                 <div style={{display:"flex",gap:4}}>
-                  <a href={url} target="_blank" rel="noreferrer" style={{border:"1.5px solid "+BORDER,borderRadius:RD,padding:"3px 12px",fontSize:10,color:BLACK,textDecoration:"none",fontFamily:"'DM Sans',sans-serif",fontWeight:600}}>{moveTx[lang]}</a>
-                  <button onClick={function(){copyUrl(url,p.name);}} style={{background:copied===p.name?BLACK:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"3px 12px",fontSize:10,color:copied===p.name?WHITE:SUB,cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}}>
+                  <a href={url} target="_blank" rel="noreferrer" style={{border:"1.5px solid "+BORDER,borderRadius:RD,padding:"3px 12px",fontSize:10,color:BLACK,textDecoration:"none",fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600}}>{moveTx[lang]}</a>
+                  <button onClick={function(){copyUrl(url,p.name);}} style={{background:copied===p.name?BLACK:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"3px 12px",fontSize:10,color:copied===p.name?WHITE:SUB,cursor:"pointer",fontFamily:"'Nanum Gothic Coding',monospace"}}>
                     {copied===p.name?"✓":copyTx[lang]}
                   </button>
                 </div>
@@ -330,7 +329,7 @@ function ElRelSection({myElId,lang,t}){
           <div style={{flex:1}}>
             <div style={{fontSize:12,color:BLACK,fontWeight:600,marginBottom:2}}>{r.killDesc[lang]}</div>
             <div style={{fontSize:11,color:SUB,lineHeight:1.5,marginBottom:6}}>{r.killStyle[lang]}</div>
-            <div style={{display:"flex",gap:5,alignItems:"center"}}>{kilEl.hex.map(function(h){return <div key={h} style={{width:16,height:16,borderRadius:"50%",background:h,border:"1px solid "+BORDER,opacity:0.4}}></div>;})}<span style={{fontSize:10,color:MUTED,fontFamily:"'DM Sans',sans-serif"}}>{lang==="KO"?"오늘 피하기":lang==="JP"?"今日は避ける":"Avoid today"}</span></div>
+            <div style={{display:"flex",gap:5,alignItems:"center"}}>{kilEl.hex.map(function(h){return <div key={h} style={{width:16,height:16,borderRadius:"50%",background:h,border:"1px solid "+BORDER,opacity:0.4}}></div>;})}<span style={{fontSize:10,color:MUTED,fontFamily:"'Nanum Gothic Coding',monospace"}}>{lang==="KO"?"오늘 피하기":lang==="JP"?"今日は避ける":"Avoid today"}</span></div>
           </div>
         </div>
       </div>
@@ -355,7 +354,7 @@ function AccSection({myElId,rel,affIds,lang,t}){
             return(
               <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",border:"1.5px solid "+BORDER,borderRadius:12,background:WHITE}}>
                 <span style={{fontSize:13,color:BLACK}}>— {item}</span>
-                <a href={itemLink(i)} target="_blank" rel="noreferrer" style={{background:lang==="KO"?"#E13244":BLACK,color:WHITE,borderRadius:RD,padding:"4px 14px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>{shopLbl}</a>
+                <a href={itemLink(i)} target="_blank" rel="noreferrer" style={{background:lang==="KO"?"#E13244":BLACK,color:WHITE,borderRadius:RD,padding:"4px 14px",fontSize:11,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>{shopLbl}</a>
               </div>
             );
           })}
@@ -388,7 +387,7 @@ function AffModal({ids,onSave,onClose,lang}){
     <div onClick={onClose} style={{position:"fixed",inset:0,background:"rgba(243,240,235,0.92)",backdropFilter:"blur(4px)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:16}}>
       <div onClick={function(e){e.stopPropagation();}} style={{background:WHITE,borderRadius:20,padding:24,width:"100%",maxWidth:460,maxHeight:"88vh",overflowY:"auto",boxShadow:"0 8px 32px rgba(0,0,0,0.12)"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:8}}>
-          <span style={{fontFamily:"'DM Sans',sans-serif",fontSize:20,fontWeight:700,color:BLACK}}>{ttl}</span>
+          <span style={{fontFamily:"'Nanum Gothic Coding',monospace",fontSize:20,fontWeight:700,color:BLACK}}>{ttl}</span>
           <button onClick={onClose} style={{background:"transparent",border:"none",color:MUTED,fontSize:20,cursor:"pointer"}}>✕</button>
         </div>
         <p style={{fontSize:13,color:SUB,lineHeight:1.8,marginBottom:12,whiteSpace:"pre-line"}}>{desc}</p>
@@ -398,12 +397,12 @@ function AffModal({ids,onSave,onClose,lang}){
             return(
               <div key={p.key} style={{background:BG,borderRadius:12,padding:14,border:"1.5px solid "+(form[p.key]?BLACK:BORDER)}}>
                 <div style={{display:"flex",justifyContent:"space-between",marginBottom:8}}>
-                  <span style={{fontSize:13,color:BLACK,fontFamily:"'DM Sans',sans-serif",fontWeight:600}}>{p.name}</span>
-                  <span style={{fontSize:11,color:MUTED,fontFamily:"'DM Sans',sans-serif"}}>{p.comm}</span>
+                  <span style={{fontSize:13,color:BLACK,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600}}>{p.name}</span>
+                  <span style={{fontSize:11,color:MUTED,fontFamily:"'Nanum Gothic Coding',monospace"}}>{p.comm}</span>
                 </div>
                 <input value={form[p.key]||""} placeholder={p.ph}
                   onChange={function(ev){var v=ev.target.value;setForm(function(f){var nf=Object.assign({},f);nf[p.key]=v;return nf;});}}
-                  style={{width:"100%",background:WHITE,border:"1.5px solid "+BORDER,borderRadius:10,padding:"10px 12px",color:BLACK,fontSize:12,fontFamily:"'DM Sans',sans-serif",outline:"none",marginBottom:4}}/>
+                  style={{width:"100%",background:WHITE,border:"1.5px solid "+BORDER,borderRadius:10,padding:"10px 12px",color:BLACK,fontSize:12,fontFamily:"'Nanum Gothic Coding',monospace",outline:"none",marginBottom:4}}/>
                 <div style={{fontSize:10,color:MUTED}}>{p.guide}</div>
                 {!form[p.key]&&<div style={{fontSize:10,color:MUTED,marginTop:3}}>{warn}</div>}
               </div>
@@ -507,13 +506,13 @@ function WhatIsSaju({lang}){
   return(
     <div style={{marginTop:28,width:"100%"}}>
       <button onClick={function(){setOpen(!open);}}
-        style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,cursor:"pointer",display:"flex",alignItems:"center",gap:6,margin:"0 auto",color:SUB,fontSize:12,fontFamily:"'DM Sans',sans-serif",fontWeight:600,padding:"8px 20px"}}>
+        style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,cursor:"pointer",display:"flex",alignItems:"center",gap:6,margin:"0 auto",color:SUB,fontSize:12,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600,padding:"8px 20px"}}>
         <span style={{fontSize:10,display:"inline-block",transform:open?"rotate(90deg)":"rotate(0deg)",transition:"transform .25s"}}>▶</span>
         {btnLabel}
       </button>
       {open&&(
-        <div style={{background:WHITE,borderRadius:20,padding:"24px 22px",marginTop:12,boxShadow:SHD}}>
-          <div style={{fontSize:20,fontWeight:700,color:BLACK,fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>{data.title}</div>
+        <div style={{background:WHITE,borderRadius:8,padding:"24px 22px",marginTop:12,boxShadow:SHD}}>
+          <div style={{fontSize:20,fontWeight:700,color:BLACK,fontFamily:"'Nanum Gothic Coding',monospace",marginBottom:4}}>{data.title}</div>
           <div style={{fontSize:12,color:MUTED,marginBottom:18,fontStyle:"italic"}}>{data.sub}</div>
 
           {/* 섹션 */}
@@ -530,7 +529,7 @@ function WhatIsSaju({lang}){
           })}
 
           {/* 오행 */}
-          <div style={{fontSize:9,color:MUTED,fontFamily:"'DM Sans',sans-serif",letterSpacing:".2em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>
+          <div style={{fontSize:9,color:MUTED,fontFamily:"'Nanum Gothic Coding',monospace",letterSpacing:".2em",textTransform:"uppercase",marginBottom:10,fontWeight:600}}>
             {lang==="KO"?"다섯 가지 기운":lang==="JP"?"五つの気運":"The Five Energies"}
           </div>
           <div style={{display:"flex",flexDirection:"column",gap:7,marginBottom:16}}>
@@ -539,7 +538,7 @@ function WhatIsSaju({lang}){
                 <div key={el.n} style={{display:"flex",alignItems:"center",gap:12,padding:"9px 14px",border:"1.5px solid "+BORDER,borderRadius:12}}>
                   <span style={{fontSize:20,flexShrink:0}}>{el.e}</span>
                   <div>
-                    <div style={{fontSize:13,color:BLACK,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginBottom:1}}>{el.n}</div>
+                    <div style={{fontSize:13,color:BLACK,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600,marginBottom:1}}>{el.n}</div>
                     <div style={{fontSize:11,color:SUB}}>{el.d}</div>
                   </div>
                 </div>
@@ -547,7 +546,7 @@ function WhatIsSaju({lang}){
             })}
           </div>
 
-          <button onClick={function(){setOpen(false);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"7px 20px",fontSize:11,color:MUTED,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",width:"100%"}}>
+          <button onClick={function(){setOpen(false);}} style={{background:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"7px 20px",fontSize:11,color:MUTED,cursor:"pointer",fontFamily:"'Nanum Gothic Coding',monospace",width:"100%"}}>
             {data.close}
           </button>
         </div>
@@ -568,9 +567,9 @@ function Landing({lang,setLang,onDone}){
     EN:{ly:"Birth Year",lm:"Month",ld:"Day",py:"Year",pm:"Month",pd:"Day",ys:"",ds:"",rf:function(y,m,d){return y+" / "+m+" / "+d;},go:"Discover My K-Energy",wait:"Select your birth date & gender",p:"Discover your K-Energy type through Saju\nand complete today's perfect outfit",glbl:"Gender",gf:"Female",gm:"Male"},
     JP:{ly:"生まれた年",lm:"月",ld:"日",py:"年",pm:"月",pd:"日",ys:"年",ds:"日",rf:function(y,m,d){return y+"年 "+m+"月 "+d+"日";},go:"気運を診断する",wait:"生年月日と性別を選択してください",p:"生年月日で五行の気運を診断し\n今日のファッションを完成させましょう",glbl:"性別",gf:"女性",gm:"男性"},
   }[lang];
-  function ss(v){return{width:"100%",background:WHITE,border:"1.5px solid "+(v?SUB:BORDER),borderRadius:12,padding:"11px 12px",color:v?BLACK:MUTED,fontSize:13,cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:500,appearance:"none",WebkitAppearance:"none"};}
+  function ss(v){return{width:"100%",background:WHITE,border:"1.5px solid "+(v?SUB:BORDER),borderRadius:12,padding:"11px 12px",color:v?BLACK:MUTED,fontSize:13,cursor:"pointer",fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:500,appearance:"none",WebkitAppearance:"none"};}
   return(
-    <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"64px 22px 48px",fontFamily:"'DM Sans',sans-serif"}}>
+    <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:"64px 22px 48px",fontFamily:"'Nanum Gothic Coding',monospace"}}>
       {/* 상단 바 */}
       <div style={{position:"fixed",top:0,left:0,right:0,zIndex:100,background:"rgba(250,250,250,0.95)",backdropFilter:"blur(12px)",borderBottom:"1px solid "+BORDER,padding:"12px 20px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <span style={{fontSize:11,letterSpacing:".35em",color:BLACK,fontFamily:"monospace",fontWeight:600}}>KIUN · 氣運</span>
@@ -585,7 +584,7 @@ function Landing({lang,setLang,onDone}){
         <p style={{fontSize:15,color:SUB,lineHeight:2,marginBottom:44,whiteSpace:"pre-line",fontFamily:SERIF}}>{ldata.p}</p>
 
         {/* 입력 카드 */}
-        <div style={{background:WHITE,borderRadius:20,padding:"28px 22px",boxShadow:SHD}}>
+        <div style={{background:WHITE,borderRadius:8,padding:"28px 22px",boxShadow:SHD}}>
           {/* 날짜 */}
           <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr 1fr",gap:8,marginBottom:12}}>
             <div>
@@ -615,7 +614,7 @@ function Landing({lang,setLang,onDone}){
               {[{val:"F",label:ldata.gf},{val:"M",label:ldata.gm}].map(function(g){
                 return(
                   <button key={g.val} onClick={function(){setGender(g.val);}}
-                    style={{background:gender===g.val?BLACK:WHITE,color:gender===g.val?WHITE:BLACK,border:"1.5px solid "+(gender===g.val?BLACK:BORDER),borderRadius:12,padding:"11px",fontSize:13,cursor:"pointer",fontWeight:600,transition:"all .15s",fontFamily:"'DM Sans',sans-serif"}}>
+                    style={{background:gender===g.val?BLACK:WHITE,color:gender===g.val?WHITE:BLACK,border:"1.5px solid "+(gender===g.val?BLACK:BORDER),borderRadius:12,padding:"11px",fontSize:13,cursor:"pointer",fontWeight:600,transition:"all .15s",fontFamily:"'Nanum Gothic Coding',monospace"}}>
                     {g.label}
                   </button>
                 );
@@ -635,7 +634,7 @@ function Landing({lang,setLang,onDone}){
         {/* Contact */}
         <div style={{marginTop:32,textAlign:"center"}}>
           <div style={{fontSize:9,color:MUTED,letterSpacing:".2em",textTransform:"uppercase",marginBottom:6,fontFamily:"monospace"}}>Contact</div>
-          <a href="https://www.instagram.com/maker.5972" target="_blank" rel="noreferrer" style={{fontSize:12,color:MUTED,textDecoration:"none",fontFamily:"'DM Sans',sans-serif"}}>@maker.5972</a>
+          <a href="https://www.instagram.com/maker.5972" target="_blank" rel="noreferrer" style={{fontSize:12,color:MUTED,textDecoration:"none",fontFamily:"'Nanum Gothic Coding',monospace"}}>@maker.5972</a>
         </div>
       </div>
     </div>
@@ -649,7 +648,7 @@ function Loader({lang}){
   var [step,setStep]=useState(0);
   useEffect(function(){var t1=setTimeout(function(){setStep(1);},1200);var t2=setTimeout(function(){setStep(2);},2400);return function(){clearTimeout(t1);clearTimeout(t2);};},[]);
   return(
-    <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:24,fontFamily:"'DM Sans',sans-serif"}}>
+    <div style={{minHeight:"100vh",background:BG,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:24,fontFamily:"'Nanum Gothic Coding',monospace"}}>
       <div style={{position:"relative",width:72,height:72}}>
         <svg viewBox="0 0 80 80" width="72" height="72" style={{animation:"kspin 8s linear infinite",position:"absolute"}}>
           {["木","火","土","金","水"].map(function(ch,i){var a=(i*72-90)*Math.PI/180;return <text key={ch} x={40+27*Math.cos(a)} y={40+27*Math.sin(a)} textAnchor="middle" dominantBaseline="central" fontSize="13" fill={MUTED} fontFamily="serif">{ch}</text>;})}
@@ -751,7 +750,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
   var COMING=[{emoji:"👕",KO:"오행 프린트 티셔츠",EN:"Element Print T-Shirt",JP:"五行プリントTシャツ",note:{KO:"나의 기운 한자 프린트",EN:"Hanja element print",JP:"漢字プリント"}},{emoji:"🧢",KO:"기운 버킷햇",EN:"Energy Bucket Hat",JP:"気運バケットハット",note:{KO:"오행 자수 로고",EN:"Embroidered ohaeng logo",JP:"五行刺繍ロゴ"}},{emoji:"🛍",KO:"KIUN 토트백",EN:"KIUN Tote Bag",JP:"KIUNトートバッグ",note:{KO:"오행 컬러 캔버스",EN:"Ohaeng color canvas",JP:"五行カラーキャンバス"}}];
 
   return(
-    <div style={{minHeight:"100vh",background:BG,color:BLACK,fontFamily:"'DM Sans',sans-serif"}}>
+    <div style={{minHeight:"100vh",background:BG,color:BLACK,fontFamily:"'Nanum Gothic Coding',monospace"}}>
       {/* 상단 바 */}
       <div style={{background:WHITE,borderBottom:"1px solid "+BORDER,padding:"0 16px",height:54,display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50,boxShadow:"0 1px 4px rgba(0,0,0,0.04)"}}>
         <span style={{fontSize:13,letterSpacing:".25em",color:BLACK,fontFamily:"monospace",fontWeight:600}}>KIUN · 氣運</span>
@@ -776,7 +775,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
             <div style={{fontSize:11,color:MUTED,textAlign:"center",marginBottom:18,fontWeight:500}}>{dateStr}</div>
 
             {/* 나의 기운 타이틀 */}
-            <div style={{fontSize:20,fontWeight:800,color:BLACK,marginBottom:16,letterSpacing:"-.02em",fontFamily:"'DM Sans',sans-serif"}}>
+            <div style={{fontSize:20,fontWeight:800,color:BLACK,marginBottom:16,letterSpacing:"-.02em",fontFamily:"'Nanum Gothic Coding',monospace"}}>
               {lang==="KO"?"나의 기운":lang==="JP"?"私の気運":"My K-Energy"}
             </div>
 
@@ -841,7 +840,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
                         <div key={item} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"9px 13px",border:"1.5px solid "+BORDER,borderRadius:12,background:BG}}>
                           <span style={{fontSize:13,color:BLACK}}>— {item}</span>
                           <a href={getLink(i)} target="_blank" rel="noreferrer"
-                            style={{background:lang==="KO"?"#E13244":BLACK,color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'DM Sans',sans-serif",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
+                            style={{background:lang==="KO"?"#E13244":BLACK,color:WHITE,borderRadius:RD,padding:"4px 13px",fontSize:11,fontFamily:"'Nanum Gothic Coding',monospace",fontWeight:600,textDecoration:"none",whiteSpace:"nowrap"}}>
                             {shopLbl}
                           </a>
                         </div>
@@ -892,7 +891,7 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
 
             {/* 기운 오브젝트 진입 버튼 */}
             <button onClick={function(){setTab("frag");}}
-              style={{width:"100%",background:WHITE,border:"1.5px solid "+BORDER,borderRadius:16,padding:"14px 18px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",marginBottom:16,boxShadow:SHD}}>
+              style={{width:"100%",background:WHITE,border:"1px solid "+BORDER,borderRadius:8,padding:"14px 18px",display:"flex",alignItems:"center",justifyContent:"space-between",cursor:"pointer",marginBottom:16,boxShadow:SHD}}>
               <div style={{textAlign:"left"}}>
                 <div style={{fontSize:13,color:BLACK,fontWeight:700,marginBottom:2}}>
                   {lang==="KO"?"기운 오브젝트":lang==="JP"?"気運コレクション":"Energy Objects"}
@@ -908,8 +907,8 @@ function Dashboard({myElId,myElStem,myGender,lang,setLang,onReset}){
             <div style={{marginBottom:16}}>
               <div style={{fontSize:20,fontWeight:800,color:BLACK,marginBottom:4,letterSpacing:"-.02em"}}>{t.chatTitle}</div>
               <div style={{fontSize:13,color:SUB,lineHeight:1.6,marginBottom:12}}>{t.chatSub}</div>
-              <div style={{background:WHITE,borderRadius:16,overflow:"hidden",boxShadow:SHD}}>
-                <textarea value={situation} rows={4} onChange={function(ev){setSituation(ev.target.value);}} placeholder={t.placeholder} style={{width:"100%",background:"transparent",border:"none",padding:"16px 18px 10px",color:BLACK,fontSize:14,lineHeight:1.8,resize:"none",outline:"none",fontFamily:"'DM Sans',sans-serif"}}/>
+              <div style={{background:WHITE,borderRadius:8,overflow:"hidden",boxShadow:SHD}}>
+                <textarea value={situation} rows={4} onChange={function(ev){setSituation(ev.target.value);}} placeholder={t.placeholder} style={{width:"100%",background:"transparent",border:"none",padding:"16px 18px 10px",color:BLACK,fontSize:14,lineHeight:1.8,resize:"none",outline:"none",fontFamily:"'Nanum Gothic Coding',monospace"}}/>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",borderTop:"1px solid "+BORDER}}>
                   <div style={{display:"flex",alignItems:"center",gap:8}}>
                     {voiceOk?<button onClick={toggleVoice} style={{background:isRec?BLACK:"transparent",border:"1.5px solid "+BORDER,borderRadius:RD,padding:"5px 14px",fontSize:11,color:isRec?WHITE:SUB,cursor:"pointer",fontWeight:600}}>{isRec?t.voiceOff:t.voiceOn}</button>:<span style={{fontSize:10,color:MUTED}}>{t.voiceNo}</span>}
@@ -1089,7 +1088,7 @@ export default function KIUN(){
   function handleDone(y,m,d,gender){var r=calcElFromDate(y,m,d);setMyElId(r.elId);setMyElStem(r.stem);setMyGender(gender);setScreen("loading");setTimeout(function(){setScreen("dashboard");},3700);}
   return(
     <div>
-      <style dangerouslySetInnerHTML={{__html:"@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@500;600;700;800&display=swap');@keyframes kspin{to{transform:rotate(360deg)}}*{box-sizing:border-box;margin:0;padding:0}select{appearance:none;-webkit-appearance:none}body{background:"+BG+";font-family:'DM Sans',sans-serif}button:hover{opacity:.88}"}}/>
+      <style dangerouslySetInnerHTML={{__html:"@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');@keyframes kspin{to{transform:rotate(360deg)}}*{box-sizing:border-box;margin:0;padding:0}select{appearance:none;-webkit-appearance:none}body{background:"+BG+";font-family:'Nanum Gothic Coding',monospace}button:hover{opacity:.88}"}}/>
       {screen==="landing"&&<Landing lang={lang} setLang={setLang} onDone={handleDone}/>}
       {screen==="loading"&&<Loader lang={lang}/>}
       {screen==="dashboard"&&myElId&&<Dashboard myElId={myElId} myElStem={myElStem} myGender={myGender} lang={lang} setLang={setLang} onReset={function(){setMyElId(null);setMyGender(null);setScreen("landing");}}/>}
